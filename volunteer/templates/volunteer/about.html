@@ -1,0 +1,21 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我々について</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <h1>我々について</h1>
+    <p>ここに団体の情報や理念を記載してください。</p>
+    <nav>
+        <ul>
+            <li><a href="{% url 'top' %}">トップページ</a></li>
+            <li><a href="{% url 'organization_list' %}">団体一覧</a></li>
+            <li><a href="{% url 'contact' %}">ご意見や相談を受ける</a></li>
+        </ul>
+    </nav>
+</body>
+</html>
