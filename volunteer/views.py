@@ -8,7 +8,7 @@ def organization_list(request):
     return render(request, 'volunteer/organization_list.html')
 
 def about(request):
-    return render(request, 'about.html')
+    return render(request, 'volunteer/about.html')
 
 def contact(request):
-    return render(request, 'contact.html')
+    return render(request, 'volunteer/contact.html')
