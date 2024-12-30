@@ -1,0 +1,22 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>〇〇について</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'volunteer/css/default.css' %}">
+</head>
+<body>
+    <header>
+        <ul>
+            <li><a href="{% url 'top' %}">トップページ</a></li>
+            <li><a href="{% url 'about' %}">我々について</a></li>
+            <li><a href="{% url 'organization_list' %}">団体一覧</a></li>
+            <li><a href="{% url 'contact' %}">ご意見や相談を受ける</a></li>
+        </ul>
+    </header>
+    <h1>〇〇について</h1>
+    <p>ここに団体の情報や理念を記載。</p>
+</body>
+</html>

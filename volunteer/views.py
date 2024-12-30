@@ -12,3 +12,6 @@ def about(request):
 
 def contact(request):
     return render(request, 'volunteer/contact.html')
+
+def 〇〇(request):
+    return render(request, 'volunteer/content/〇〇.html')
