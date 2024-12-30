@@ -395,6 +395,20 @@ img {
 
 }
 
+.form-container {
+    width: 100%; /* モバイルでは幅80% */
+    max-width: 1200px; /* パソコンでは最大幅800px */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* 影の効果 */
+    background-color: white; /* フォームの背景色 */
+    padding: 20px; /* フォームの内側の余白 */
+    border-radius: 8px; /* フォームの角を丸くする */
+}
+iframe {
+    width: 100%; /* iframeはコンテナの幅に従う */
+    height: 1080px; /* 固定高さ（必要に応じて調整） */
+    border: none; /* フレームボーダーを削除 */
+}
+
 ul {
     max-width: 800px;
     margin: 15px auto;
