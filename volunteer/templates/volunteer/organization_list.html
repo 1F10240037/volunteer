@@ -9,13 +9,20 @@
 </head>
 <body>
     <header>
-        <ul>
+        <div class="header-container">
+            <h1 class="site-title">UNITED HAPPINESS</h1>
+            <button class="menu-toggle" aria-label="メニューを開く">
+                ☰
+            </button>
+        </div>
+        <ul class="navbar">
             <li><a href="{% url 'top' %}">トップページ</a></li>
             <li><a href="{% url 'about' %}">我々について</a></li>
             <li><a href="{% url 'organization_list' %}">団体一覧</a></li>
             <li><a href="{% url 'contact' %}">ご意見や相談を受ける</a></li>
         </ul>
     </header>
+    <main>
     <h1>団体一覧</h1>
     <div class="contents">
         <div class="content">
@@ -31,5 +38,7 @@
             <a href="https://www.niboshi-ito.com/">××の公式サイト</a>
         </div>
     </div>
+    </main>
+    <script src="{% static 'volunteer/js/default.js' %}"></script>
 </body>
 </html>

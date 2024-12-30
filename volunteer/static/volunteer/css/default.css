@@ -7,19 +7,48 @@
 
 body {
     font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: #333;
     margin: 0;
     padding: 0;
-    line-height: 1.6;
     background-color: #f9f9f9;
-    color: #333;
 }
-
 
 /* ヘッダー */
 header {
-    background-color: #333;
-    padding: 10px 0;
-    margin-bottom: 20px;
+    display: flex; /* フレックスボックスを使用 */
+    flex-direction: column; /* 縦方向に配置 */
+    align-items: center; /* 水平方向の中央揃え */
+    justify-content: center; /* 垂直方向の中央揃え */
+    background-color: #333; /* ヘッダーの背景色 */
+    color: white; /* ヘッダーの文字色 */
+    padding: 1rem; /* パディングを追加 */
+}
+
+/* ヘッダーのコンテナ */
+.header-container {
+    text-align: center; /* テキストを中央揃え */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+/* サイトタイトル */
+.site-title {
+    color: white;
+    font-size: 18px;
+    margin: 0;
+}
+
+/* メニューのトグルボタン（スマホ用） */
+.menu-toggle {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    display: none; /* 初期状態では非表示 */
 }
 
 header ul {
@@ -49,12 +78,54 @@ header ul li a:hover {
 
 /* セクション */
 section {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #fff;
+    margin: 30px auto;
+    max-width: 800px;
+    background: #ffffff;
+    border: 1px solid #ddd;
     border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+section h2 {
+    font-size: 1.5em;
+    color: #005f73;
+    border-bottom: 2px solid #0a9396;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+section p {
+    font-size: 1em;
+    margin-bottom: 20px;
+    color: #555;
+}
+
+section ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+section ul li {
+    margin: 10px 0;
+    font-size: 1em;
+    color: #333;
+}
+
+/* 最後のセクションの強調 */
+.contact-call {
+    background: #e9ecef;
+    text-align: center;
+}
+
+.contact-call a {
+    color: #0a9396;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.contact-call a:hover {
+    color: #94d2bd;
 }
 
 /* 見出し */
@@ -322,4 +393,88 @@ ul {
 
 ul li {
     margin: 5px 0;
+}
+
+/* Heroセクションのスタイル */
+.hero {
+    text-align: center;
+    background: #0a9396;
+    color: white;
+    padding: 50px 20px;
+}
+
+.hero h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+.hero p {
+    font-size: 1.2em;
+}
+
+
+/* ナビゲーションメニュー */
+.navbar {
+    display: flex; /* フレックスボックスを使用 */
+    gap: 1.5rem; /* メニューアイテム間のスペース */
+    margin-top: 1rem; /* 上部に余白を追加 */
+    list-style: none; /* リストのスタイルを削除 */
+    padding: 0; /* パディングを削除 */
+}
+
+.navbar li {
+    margin: 0;
+}
+
+.navbar li a {
+    text-decoration: none; /* アンダーラインを削除 */
+    color: white; /* 文字色 */
+    font-weight: bold; /* 太字 */
+}
+
+
+.navbar li a:hover {
+    text-decoration: underline; /* ホバー時にアンダーラインを表示 */
+    color: #ff9800; /* ホバー時の文字色 */
+}
+
+.menu-toggle {
+    display: none; /* デスクトップでは非表示 */
+}
+
+/* メインコンテンツの位置調整 */
+main {
+    margin-top: 60px; /* 固定ヘッダーの高さ分 */
+}
+
+/* ===== スマホ用スタイル ===== */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block; /* スマホでトグルボタンを表示 */
+    }
+
+    .navbar {
+        display: none; /* 初期状態では非表示 */
+        flex-direction: column; /* 縦方向に並べる */
+        background: #005f73;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        padding: 10px 0;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar.active {
+        display: flex; /* トグルが押されたら表示 */
+    }
+
+    .navbar li {
+        margin: 10px 0; /* 項目間のスペース */
+    }
+}
+
+/* メインコンテンツの位置調整 */
+main {
+    margin-top: 80px; /* 固定されたヘッダー分だけ下げる */
 }

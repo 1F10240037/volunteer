@@ -9,14 +9,23 @@
 </head>
 <body>
     <header>
-        <ul>
+        <div class="header-container">
+            <h1 class="site-title">UNITED HAPPINESS</h1>
+            <button class="menu-toggle" aria-label="メニューを開く">
+                ☰
+            </button>
+        </div>
+        <ul class="navbar">
             <li><a href="{% url 'top' %}">トップページ</a></li>
             <li><a href="{% url 'about' %}">我々について</a></li>
             <li><a href="{% url 'organization_list' %}">団体一覧</a></li>
             <li><a href="{% url 'contact' %}">ご意見や相談を受ける</a></li>
         </ul>
     </header>
+    <main>
     <h1>〇〇について</h1>
     <p>ここに団体の情報や理念を記載。</p>
+    <script src="{% static 'volunteer/js/default.js' %}"></script>
+    </main>
 </body>
 </html>

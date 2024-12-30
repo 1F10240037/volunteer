@@ -9,33 +9,58 @@
 </head>
 <body>
     <header>
-        <ul>
+        <div class="header-container">
+            <h1 class="site-title">UNITED HAPPINESS</h1>
+            <button class="menu-toggle" aria-label="メニューを開く">
+                ☰
+            </button>
+        </div>
+        <ul class="navbar">
             <li><a href="{% url 'top' %}">トップページ</a></li>
             <li><a href="{% url 'about' %}">我々について</a></li>
             <li><a href="{% url 'organization_list' %}">団体一覧</a></li>
             <li><a href="{% url 'contact' %}">ご意見や相談を受ける</a></li>
         </ul>
     </header>
-    <h1>我々について</h1>
+    <main>
+        <section class="hero">
+            <h1>我々について</h1>
+            <p>私たちは「UNITED HAPPINESS」という学生ボランティア団体です。</p>
+        </section>
 
-    <p>私たち「UNITED HAPPINESS」は、学生によるボランティア団体です。「UNITED」には「一つにする・団結する」という意味、「HAPPINESS」には「幸せ・幸福」という意味が込められており、人々をつなぐことで幸せあふれる社会の実現を目指しています。</p>
+        <section class="about-details">
+            <h2>団体の由来</h2>
+            <p>
+                「UNITED」の「UNI」には「一つ」という意味があり、全員を一つにする、すなわち人々を繋ぐ役割を果たしたいという想いが込められています。
+                「HAPPINESS」には「幸せ」「幸福」という意味があり、私たちは人々を団結させることで、幸せ溢れる社会の実現を目指しています。
+            </p>
+        </section>
 
-    <h2>主な活動内容</h2>
-    <ul>
-        <li>団体の活動を紹介するウェブサイトの運営</li>
-        <li>支援者と支援先をつなぐサポート</li>
-        <li>実地ボランティアの実施</li>
-    </ul>
-    <p>これらを通じて、困っている方々に必要な支援を届け、より多くの笑顔を生み出すことを目指しています。</p>
+        <section class="activities">
+            <h2>主な活動内容</h2>
+            <ul>
+                <li>サイトによる団体の紹介</li>
+                <li>支援者と支援先のマッチング</li>
+                <li>実地ボランティア活動</li>
+            </ul>
+        </section>
 
-    <h2>今後の計画</h2>
-    <ul>
-        <li>募金サイトの設置</li>
-        <li>被災地商品の委託販売イベントの開催</li>
-        <li>企業や学校との連携プロジェクト</li>
-        <li>実地ボランティア活動の主催</li>
-    </ul>
+        <section class="future-plans">
+            <h2>今後の展望</h2>
+            <ul>
+                <li>募金サイトの設置</li>
+                <li>イベントで被災地商品の委託販売</li>
+                <li>他企業や学校との連携</li>
+                <li>実地ボランティア活動の主催</li>
+            </ul>
+            <p>私たちは、より多くの笑顔を届けるために努力を続けます。</p>
+        </section>
 
-    <p>私たちの活動に共感し、ご協力いただける方は、<a href="{% url 'contact' %}">こちらのフォーム</a>またはメールでご連絡いただけると幸いです。</p>
+        <section class="contact-call">
+            <h2>ご協力のお願い</h2>
+            <p>ご協力いただける方は、ぜひ<a href="{% url 'contact' %}">こちらのフォーム</a>またはメールでご連絡ください。</p>
+        </section>
+    </main>
+    <script src="{% static 'volunteer/js/default.js' %}"></script>
 </body>
 </html>
