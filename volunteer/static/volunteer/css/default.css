@@ -11,7 +11,11 @@ body {
     color: #333;
     margin: 0;
     padding: 0;
-    background-color: #f9f9f9;
+    background-image: url('UNITED HAPPINESS-.png'); /* 画像のパス */
+    background-size: cover; /* 画像を画面全体にフィットさせる */
+    background-position: center; /* 中央に配置 */
+    background-repeat: no-repeat; /* 繰り返さない */
+    background-color: #f5f5dc; /* 画像が読み込まれない場合の背景色 */
 }
 
 /* ヘッダー */
