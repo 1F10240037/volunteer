@@ -5,14 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ハッスルについて</title>
-    <link rel="stylesheet" type="text/css" href="{% static 'volunteer/css/default.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'volunteer/css/ハッスル.css' %}">
 </head>
 <body>
+    <div class="background"></div>
     <header>
         <div class="header-container">
-            <h1 class="site-title">UNITED HAPPINESS</h1>
             <button class="menu-toggle" aria-label="メニューを開く">
-                ☰
+                <a><h1 class="site-title">UNITED HAPPINESS</h1></a>
             </button>
         </div>
         <ul class="navbar">
@@ -27,7 +27,8 @@
         <h1 style="font-family: 'Arial', sans-serif; margin: 10px 0;">UNITED HAPPINESS</h1>
         <p style="font-size: 14px; color: #555;">Connecting people, holding hands, happiness to everyone</p>
     </header>
-    <main>
+    <div class="contenting">
+    <main >
     <h1>ハッスルについて</h1>
     <p>
         ハッスルはNPO法人です。
@@ -45,8 +46,10 @@
             <li>職能開発・雇用拡充</li>
         </ul>
         です。
+        
     </p>
     <script src="{% static 'volunteer/js/default.js' %}"></script>
     </main>
+</div>
 </body>
 </html>
