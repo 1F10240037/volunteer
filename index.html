@@ -1,14 +1,12 @@
-{% load static %}
 <!DOCTYPE html>
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>トップ</title>
-    <link rel="stylesheet" type="text/css" href="{% static 'volunteer/css/default.css' %}">
+    <title>我々について</title>
+    <link rel="stylesheet" type="text/css" href="css/default.css">
 </head>
 <body>
-    
     <header>
         <div class="header-container">
             <button class="menu-toggle" aria-label="メニューを開く">
@@ -16,14 +14,14 @@
             </button>
         </div>
         <ul class="navbar">
-            <li><a href="{% url 'index' %}">トップページ</a></li>
-            <li><a href="{% url 'about' %}">我々について</a></li>
-            <li><a href="{% url 'organization_list' %}">団体一覧</a></li>
-            <li><a href="{% url 'contact' %}">ご意見や相談</a></li>
+            <li><a href="index.html">トップページ</a></li>
+            <li><a href="about.html">我々について</a></li>
+            <li><a href="organization_list.html">団体一覧</a></li>
+            <li><a href="contact.html">ご意見や相談</a></li>
         </ul>
     </header>
     <header style="text-align: center; padding: 20px; background-color: #f9f9f9;">
-        <img src="{% static 'images/UNITED HAPPINESS-.png'%}" alt="United Happiness Logo" style="width: 150px;">
+        <img src="img/UNITED HAPPINESS-.png" alt="United Happiness Logo" style="width: 150px;">
         <h1 style="font-family: 'Arial', sans-serif; margin: 10px 0;">UNITED HAPPINESS</h1>
         <p style="font-size: 14px; color: #555;">Connecting people, holding hands, happiness to everyone</p>
     </header>
@@ -35,9 +33,9 @@
             <h2>お知らせ</h2>
             <p>最新情報を随時更新いたしますので、お待ちください。</p>
             <ul>
-                <li>2024.12.31 <a href="{% url 'contact' %}">新機能の希望があれば</a></li>
-                <li>2024.12.30 <a href="{% url 'contact' %}">サイトで紹介させていただく団体を募集しています</a></li>
-                <li>2024.12.30 <a href="{% url 'contact' %}">協力してくださる団体を募集しています</a></li>
+                <li>2024.12.31 <a href="contact.html">新機能の希望があれば</a></li>
+                <li>2024.12.30 <a href="contact.html">サイトで紹介させていただく団体を募集しています</a></li>
+                <li>2024.12.30 <a href="contact.html">協力してくださる団体を募集しています</a></li>
             </ul>
         </section>
 
@@ -53,6 +51,6 @@
 
         
     </main>
-    <script src="{% static 'volunteer/js/default.js' %}"></script>
+    <script src="js/default.js"></script>
 </body>
 </html>
