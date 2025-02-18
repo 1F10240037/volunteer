@@ -11,11 +11,11 @@ body {
     color: #333;
     margin: 0;
     padding: 0;
-    background-image: url('UNITED HAPPINESS-.png'); /* 画像のパス */
+    background-image: url('こもれび.png'); /* 画像のパス */
     background-size: cover; /* 画像を画面全体にフィットさせる */
     background-position: center; /* 中央に配置 */
     background-repeat: no-repeat; /* 繰り返さない */
-    background-color: #f5f5dc; /* 画像が読み込まれない場合の背景色 */
+    background-color: #9dcefc; /* 画像が読み込まれない場合の背景色 */
 }
 
 /* ヘッダー */
@@ -93,8 +93,8 @@ section {
 
 section h2 {
     font-size: 1.5em;
-    color: #005f73;
-    border-bottom: 2px solid #0a9396;
+    color: #3bccea;
+    border-bottom: 2px solid #dbe86c;
     padding-bottom: 10px;
     margin-bottom: 15px;
 }
@@ -102,7 +102,7 @@ section h2 {
 section p {
     font-size: 1em;
     margin-bottom: 20px;
-    color: #555;
+    color: #e80d0dc7;
 }
 
 section ul {
@@ -113,7 +113,7 @@ section ul {
 section ul li {
     margin: 10px 0;
     font-size: 1em;
-    color: #333;
+    color: #327195;
 }
 
 /* 最後のセクションの強調 */
@@ -123,7 +123,7 @@ section ul li {
 }
 
 .contact-call a {
-    color: #0a9396;
+    color: #6af0f2;
     text-decoration: none;
     font-weight: bold;
 }
@@ -135,13 +135,13 @@ section ul li {
 /* 見出し */
 h1 {
     font-size: 36px;
-    color: #333;
+    color: #218cd8;
     margin-bottom: 20px;
     text-align: center;
 }
 
 h2 {
-    color: #005f73;
+    color: #2aacc6;
     text-align: center;
 }
 
@@ -156,7 +156,7 @@ p {
 
 /* リンク */
 a {
-    color: #5C6BC0;
+    color: #8cf3f0;
     text-decoration: none;
 }
 
@@ -422,7 +422,7 @@ ul li {
 /* Heroセクションのスタイル */
 .hero {
     text-align: center;
-    background: #0a9396;
+    background: #b0dfe0;
     color: white;
     padding: 50px 20px;
 }
@@ -480,7 +480,7 @@ main {
     .navbar {
         display: none; /* 初期状態では非表示 */
         flex-direction: column; /* 縦方向に並べる */
-        background: #005f73;
+        background: #1fbcd8;
         position: absolute;
         top: 60px;
         left: 0;
@@ -501,4 +501,7 @@ main {
 /* メインコンテンツの位置調整 */
 main {
     margin-top: 80px; /* 固定されたヘッダー分だけ下げる */
+}
+.contact-call a{
+    color: #218cd8;
 }
