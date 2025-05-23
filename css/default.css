@@ -9,8 +9,6 @@ body {
     font-family: 'Arial', sans-serif;
     line-height: 1.6;
     color: #333;
-    margin: 0;
-    padding: 0;
     background-image: url('こもれび.png'); /* 画像のパス */
     background-size: cover; /* 画像を画面全体にフィットさせる */
     background-position: center; /* 中央に配置 */
@@ -145,8 +143,6 @@ h2 {
     text-align: center;
 }
 
-
-
 /* パラグラフ */
 p {
     margin: 15px auto;
@@ -242,159 +238,6 @@ img {
     height: auto;
 }
 
-/*contact*/
-/*
-.Form {
-    margin-top: 80px;
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 720px;
-  }
-  @media screen and (max-width: 480px) {
-    .Form {
-      margin-top: 40px;
-    }
-  }
-.Form-Item {
-    border-top: 1px solid #ddd;
-    padding-top: 24px;
-    padding-bottom: 24px;
-    width: 100%;
-    display: flex;
-    align-items: center;
-  }
-@media screen and (max-width: 480px) {
-    .Form-Item {
-      padding-left: 14px;
-      padding-right: 14px;
-      padding-top: 16px;
-      padding-bottom: 16px;
-      flex-wrap: wrap;
-    }
-}
-.Form-Item:nth-child(5) {
-    border-bottom: 1px solid #ddd;
-}
-.Form-Item-Label {
-    width: 100%;
-    max-width: 248px;
-    letter-spacing: 0.05em;
-    font-weight: bold;
-    font-size: 18px;
-}
-@media screen and (max-width: 480px) {
-    .Form-Item-Label {
-      max-width: inherit;
-      display: flex;
-      align-items: center;
-      font-size: 15px;
-    }
-}
-.Form-Item-Label.isMsg {
-    margin-top: 8px;
-    margin-bottom: auto;
-}
-@media screen and (max-width: 480px) {
-    .Form-Item-Label.isMsg {
-      margin-top: 0;
-    }
-}
-.Form-Item-Label-Required {
-    border-radius: 6px;
-    margin-right: 8px;
-    padding-top: 8px;
-    padding-bottom: 8px;
-    width: 48px;
-    display: inline-block;
-    text-align: center;
-    background: #5bc8ac;
-    color: #fff;
-    font-size: 14px;
-}
-@media screen and (max-width: 480px) {
-    .Form-Item-Label-Required {
-      border-radius: 4px;
-      padding-top: 4px;
-      padding-bottom: 4px;
-      width: 32px;
-      font-size: 10px;
-    }
-}
-.Form-Item-Input {
-    border: 1px solid #ddd;
-    border-radius: 6px;
-    margin-left: 40px;
-    padding-left: 1em;
-    padding-right: 1em;
-    height: 48px;
-    flex: 1;
-    width: 100%;
-    max-width: 410px;
-    background: #eaedf2;
-    font-size: 18px;
-}
-@media screen and (max-width: 480px) {
-    .Form-Item-Input {
-      margin-left: 0;
-      margin-top: 18px;
-      height: 40px;
-      flex: inherit;
-      font-size: 15px;
-    }
-}
-.Form-Item-Textarea {
-    border: 1px solid #ddd;
-    border-radius: 6px;
-    margin-left: 40px;
-    padding-left: 1em;
-    padding-right: 1em;
-    height: 216px;
-    flex: 1;
-    width: 100%;
-    max-width: 410px;
-    background: #eaedf2;
-    font-size: 18px;
-}
-@media screen and (max-width: 480px) {
-    .Form-Item-Textarea {
-      margin-top: 18px;
-      margin-left: 0;
-      height: 200px;
-      flex: inherit;
-      font-size: 15px;
-    }
-}
-.Form-Btn {
-    border-radius: 6px;
-    margin-top: 32px;
-    margin-left: auto;
-    margin-right: auto;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    width: 280px;
-    display: block;
-    letter-spacing: 0.05em;
-    background: #5bc8ac;
-    color: #fff;
-    font-weight: bold;
-    font-size: 20px;
-}
-@media screen and (max-width: 480px) {
-    .Form-Btn {
-      margin-top: 24px;
-      padding-top: 8px;
-      padding-bottom: 8px;
-      width: 160px;
-      font-size: 16px;
-    }
-}
-*/
-
-.form{
-    position: center; 
-
-}
-
 .form-container {
     width: 100%; /* モバイルでは幅80% */
     max-width: 1200px; /* パソコンでは最大幅800px */
@@ -462,13 +305,9 @@ ul li {
     color: #ff9800; /* ホバー時の文字色 */
 }
 
-.menu-toggle {
-    display: none; /* デスクトップでは非表示 */
-}
-
 /* メインコンテンツの位置調整 */
 main {
-    margin-top: 60px; /* 固定ヘッダーの高さ分 */
+    margin-top: 80px; /* 固定ヘッダーの高さ分 */
 }
 
 /* ===== スマホ用スタイル ===== */
@@ -499,9 +338,6 @@ main {
 }
 
 /* メインコンテンツの位置調整 */
-main {
-    margin-top: 80px; /* 固定されたヘッダー分だけ下げる */
-}
 .contact-call a{
     color: #218cd8;
 }
