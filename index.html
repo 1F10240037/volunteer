@@ -41,6 +41,19 @@
         <section class="about-details">
             <h2>活動報告</h2>
             <p>現在、活動報告は準備中です。最新情報を随時更新いたしますので、お待ちください。</p>
+            <ul id="latest-blogs"></ul>
+            <script>
+            fetch('articles.json')
+            .then(res => res.json())
+            .then(articles => {
+                const list = document.getElementById('latest-blogs');
+                articles.slice(0, 5).forEach(article => {
+                const li = document.createElement('li');
+                li.innerHTML = `${article.date} <a href="${article.url}">${article.title}</a>`;
+                list.appendChild(li);
+                });
+            });
+            </script>
             <ul>
                 <li>2025.08.11 <a href="../blog_list/250811/250811.html">能登半島にてアプリ開発のための現地調査を行いました</a></li>
                 <li>2025.05.05 アプリ開発を開始しました</li>
