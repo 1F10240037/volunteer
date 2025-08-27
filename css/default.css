@@ -1,4 +1,4 @@
-/* ベースのスタイル設定 */
+/* ===== ベーススタイル ===== */
 * {
     margin: 0;
     padding: 0;
@@ -8,261 +8,111 @@
 body {
     font-family: 'Arial', sans-serif;
     line-height: 1.6;
-    color: #333;
-    background-image: url('こもれび.png'); /* 画像のパス */
-    background-size: cover; /* 画像を画面全体にフィットさせる */
-    background-position: center; /* 中央に配置 */
-    background-repeat: no-repeat; /* 繰り返さない */
-    background-color: #9dcefc; /* 画像が読み込まれない場合の背景色 */
+    background-color: #9dcefc;
 }
 
-/* ヘッダー */
+/* ===== ヘッダー ===== */
 header {
-    display: flex; /* フレックスボックスを使用 */
-    flex-direction: column; /* 縦方向に配置 */
-    align-items: center; /* 水平方向の中央揃え */
-    justify-content: center; /* 垂直方向の中央揃え */
-    background-color: #333; /* ヘッダーの背景色 */
-    color: white; /* ヘッダーの文字色 */
-    padding: 1rem; /* パディングを追加 */
-}
-
-/* ヘッダーのコンテナ */
-.header-container {
-    text-align: center; /* テキストを中央揃え */
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-}
-
-/* サイトタイトル */
-.site-title {
+    position: fixed;       /* 画面上に固定 */
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #333;
     color: white;
-    font-size: 18px;
-    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 1rem;
+    z-index: 1000;         /* 前面表示 */
 }
 
-/* メニューのトグルボタン（スマホ用） */
+/* ロゴ */
+#logo {
+    width: 150px;
+    height: 50px;
+    background-image: url('../img/komorebi.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: left center;
+    flex-shrink: 0;        /* 縮小防止 */
+}
+
+/* タイトルとハンバーガー */
+.header-container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.site-title {
+    font-size: 18px;
+    color: white;
+}
+
+/* ハンバーガーメニュー */
 .menu-toggle {
     background: none;
     border: none;
     color: white;
     font-size: 24px;
     cursor: pointer;
-    display: none; /* 初期状態では非表示 */
+    display: none;          /* PCでは非表示 */
 }
 
-header ul {
-    list-style-type: none;
-    text-align: center;
+/* ===== ナビゲーション ===== */
+.navbar {
+    display: flex;
+    gap: 1.5rem;
+    list-style: none;
 }
 
-header ul li {
-    display: inline-block;
-    margin: 0 15px;
-}
-
-header ul li a {
-    color: #fff;
-    text-decoration: none;
+.navbar li a {
+    color: white;
     font-weight: bold;
-    font-size: 18px;
-    padding: 10px 15px;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    text-decoration: none;
 }
 
-header ul li a:hover {
-    background-color: #5C6BC0;
-    color: #fff;
-    border-radius: 5px;
+.navbar li a:hover {
+    color: #ff9800;
+    text-decoration: underline;
 }
 
-/* セクション */
+/* ===== メイン ===== */
+main {
+    margin-top: 80px;       /* 固定ヘッダー分の余白 */
+}
+
+/* ===== セクション ===== */
 section {
     margin: 30px auto;
     max-width: 800px;
-    background: #ffffff;
+    background: #fff;
     border: 1px solid #ddd;
     border-radius: 8px;
     padding: 20px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
-section h2 {
+.about-details h2 {
     font-size: 1.5em;
     color: #3bccea;
     border-bottom: 2px solid #dbe86c;
     padding-bottom: 10px;
     margin-bottom: 15px;
-}
-
-section p {
-    font-size: 1em;
-    margin-bottom: 20px;
-    color: #e80d0dc7;
-}
-
-section ul {
-    list-style-type: disc;
-    padding-left: 20px;
-}
-
-section ul li {
-    margin: 10px 0;
-    font-size: 1em;
-    color: #327195;
-}
-
-/* 最後のセクションの強調 */
-.contact-call {
-    background: #e9ecef;
     text-align: center;
 }
 
-.contact-call a {
-    color: #6af0f2;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.contact-call a:hover {
-    color: #94d2bd;
-}
-
-/* 見出し */
-h1 {
-    font-size: 36px;
-    color: #218cd8;
-    margin-bottom: 20px;
-    text-align: center;
-}
-
-h2 {
-    color: #2aacc6;
-    text-align: center;
-}
-
-/* パラグラフ */
-p {
-    margin: 15px auto;
-    max-width: 800px;
-    text-align: justify;
-}
-
-/* リンク */
-a {
-    color: #8cf3f0;
-    text-decoration: none;
-}
-
-a:hover {
-    text-decoration: underline;
-}
-
-/* フッター */
-footer {
-    text-align: center;
-    padding: 20px;
-    margin-top: 40px;
-    background-color: #333;
-    color: #fff;
-    font-size: 14px;
-}
-
-/* レスポンシブデザイン */
-@media (max-width: 768px) {
-    header ul li {
-        display: block;
-        margin: 10px 0;
-    }
-
-    h1 {
-        font-size: 28px;
-    }
-
-    p {
-        font-size: 16px;
-    }
-
-    section {
-        padding: 15px;
-    }
-}
-
-@media (max-width: 480px) {
-    h1 {
-        font-size: 24px;
-    }
-
-    p {
-        font-size: 14px;
-    }
-
-    header ul li a {
-        font-size: 16px;
-    }
-}
-
-
-/*organization_list*/
-.contents {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 16px;
-}
-.content{
-    flex: 1 1 calc(33.333% - 32px);
-    box-sizing: border-box;
-    padding: 16px;
-    background-color: rgba(237, 251, 230, 0.865);
-}
-
-p {
-    margin: 0 0 16px;
-}
-
-/* リンクスタイル */
-a {
+.about-details h3 a {
     color: #0a9396;
-    text-decoration: none;
     font-weight: bold;
+    text-decoration: none;
 }
 
-a:hover {
+.about-details h3 a:hover {
     text-decoration: underline;
 }
 
-img {
-    max-width: 100%;
-    height: auto;
-}
-
-.form-container {
-    width: 100%; /* モバイルでは幅80% */
-    max-width: 1200px; /* パソコンでは最大幅800px */
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* 影の効果 */
-    background-color: white; /* フォームの背景色 */
-    padding: 20px; /* フォームの内側の余白 */
-    border-radius: 8px; /* フォームの角を丸くする */
-}
-iframe {
-    width: 100%; /* iframeはコンテナの幅に従う */
-    height: 1080px; /* 固定高さ（必要に応じて調整） */
-    border: none; /* フレームボーダーを削除 */
-}
-
-ul {
-    max-width: 800px;
-    margin: 15px auto;
-    padding-left: 20px;
-}
-
-ul li {
-    margin: 5px 0;
-}
-
-/* Heroセクションのスタイル */
+/* Heroセクション */
 .hero {
     text-align: center;
     background: #b0dfe0;
@@ -275,69 +125,64 @@ ul li {
     margin-bottom: 10px;
 }
 
-.hero p {
-    font-size: 1.2em;
+/* ===== リンク & 画像 ===== */
+a {
+    text-decoration: none;
 }
 
-
-/* ナビゲーションメニュー */
-.navbar {
-    display: flex; /* フレックスボックスを使用 */
-    gap: 1.5rem; /* メニューアイテム間のスペース */
-    margin-top: 1rem; /* 上部に余白を追加 */
-    list-style: none; /* リストのスタイルを削除 */
-    padding: 0; /* パディングを削除 */
+a:hover {
+    text-decoration: underline;
 }
 
-.navbar li {
-    margin: 0;
+img {
+    max-width: 100%;
+    height: auto;
 }
 
-.navbar li a {
-    text-decoration: none; /* アンダーラインを削除 */
-    color: white; /* 文字色 */
-    font-weight: bold; /* 太字 */
-}
-
-
-.navbar li a:hover {
-    text-decoration: underline; /* ホバー時にアンダーラインを表示 */
-    color: #ff9800; /* ホバー時の文字色 */
-}
-
-/* メインコンテンツの位置調整 */
-main {
-    margin-top: 80px; /* 固定ヘッダーの高さ分 */
-}
-
-/* ===== スマホ用スタイル ===== */
+/* ===== スマホ用レスポンシブ ===== */
 @media (max-width: 768px) {
     .menu-toggle {
-        display: block; /* スマホでトグルボタンを表示 */
+        display: block;  /* ハンバーガー表示 */
     }
 
     .navbar {
-        display: none; /* 初期状態では非表示 */
-        flex-direction: column; /* 縦方向に並べる */
+        display: none;   /* 初期非表示 */
+        flex-direction: column;
         background: #1fbcd8;
         position: absolute;
-        top: 60px;
+        top: 100%;       /* ヘッダー下に隙間なし */
         left: 0;
         width: 100%;
-        padding: 10px 0;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        padding: 0;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     }
 
     .navbar.active {
-        display: flex; /* トグルが押されたら表示 */
+        display: flex;
     }
 
     .navbar li {
-        margin: 10px 0; /* 項目間のスペース */
+        display: flex;              /* li を flex に */
+        justify-content: flex-end;  /* 文字を右端に揃える */
+        margin: 0;                  /* 上下余白を削除 */
+        height: 50px;               /* li の高さを指定（行幅を調整） */
+        align-items: center;        /* 文字を縦中央に */
+    }
+
+    .navbar li a {
+        text-align: center;          /* 右寄せ */
+        padding: 20px 20px;            /* 左右に余白 */
+        font-size: 20px;            /* 文字サイズを大きく */
+        width: auto;                /* 幅は自動 */
+    }
+
+    .hero h1 {
+        font-size: 28px;
     }
 }
 
-/* メインコンテンツの位置調整 */
-.contact-call a{
-    color: #218cd8;
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 24px;
+    }
 }
