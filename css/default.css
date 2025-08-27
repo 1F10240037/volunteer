@@ -112,17 +112,31 @@ section {
     text-decoration: underline;
 }
 
+/* 箇条書きリストを点の位置で揃える */
+.about-details ul {
+    list-style-type: disc;   /* 丸にする */
+    padding-left: 30px;      /* 左側の余白を統一 */
+    margin-bottom: 20px;     /* 下の余白 */
+}
+
+.about-details ul li {
+    display: list-item;      /* flexを外して標準表示に */
+    margin: 5px 0;           /* 行間を調整 */
+    font-size: 16px;         /* 文字サイズ調整 */
+}
+
+
 /* Heroセクション */
 .hero {
     text-align: center;
     background: #b0dfe0;
-    color: white;
-    padding: 50px 20px;
+    color: brack;
+    padding: 40px 20px;
 }
 
 .hero h1 {
     font-size: 2.5em;
-    margin-bottom: 10px;
+    margin-bottom: 0px;
 }
 
 /* ===== リンク & 画像 ===== */
@@ -137,6 +151,22 @@ a:hover {
 img {
     max-width: 100%;
     height: auto;
+}
+
+.form-container {
+    width: 100%;           /* 画面幅いっぱい */
+    max-width: 1200px;     /* 最大幅を広く */
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    margin: 0 auto;        /* 中央寄せ */
+}
+
+.form-container iframe {
+    width: 100%;            /* コンテナに合わせる */
+    height: 1500px;         /* 高さを増やす */
+    border: none;
 }
 
 /* ===== スマホ用レスポンシブ ===== */
