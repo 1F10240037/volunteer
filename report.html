@@ -18,7 +18,8 @@
         <ul class="navbar">
             <li><a href="/index.html">トップページ</a></li>
             <li><a href="/about.html">我々について</a></li>
-            <li><a href="/blog.html">活動報告</a></li>
+            <li><a href="/report.html">活動報告</a></li>
+            <li><a href="/support.html">寄付・協賛</a></li>
             <li><a href="/contact.html">お問い合わせ</a></li>
             <li><a href="https://www.instagram.com/komorebi_volo/">Instagram</a></li>
         </ul>
@@ -27,12 +28,12 @@
         <section class="hero">
             <h1>活動報告</h1>
         </section>
-        <div id="blog-list"></div>
+        <div id="report-list"></div>
         <script>
         fetch('../articles.json')
         .then(res => res.json())
         .then(articles => {
-            const container = document.getElementById('blog-list');
+            const container = document.getElementById('report-list');
             articles.forEach(article => {
             const section = document.createElement('section');
             section.className = 'about-details';
