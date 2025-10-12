@@ -8,7 +8,7 @@
 body {
     font-family: 'Arial', sans-serif;
     line-height: 1.6;
-    background-color: #9dcefc;
+    background-color: #ffffff;
 }
 
 /* ===== ヘッダー ===== */
@@ -87,11 +87,7 @@ main {
 section {
     margin: 30px auto;
     max-width: 800px;
-    background: #fff;
-    border: 1px solid #ddd;
-    border-radius: 8px;
     padding: 20px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
 .about-details p {
@@ -145,7 +141,6 @@ section {
 /* Heroセクション */
 .hero {
     text-align: center;
-    background: #b0dfe0;
     color: brack;
     padding: 40px 20px;
 }
@@ -153,6 +148,7 @@ section {
 .hero h1 {
     font-size: 2.5em;
     margin-bottom: 0px;
+    border-bottom: 4px solid #dbe86c;
 }
 
 /* ===== リンク & 画像 ===== */
@@ -210,6 +206,141 @@ img {
     border: none;
 }
 
+#latest-reports {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#latest-reports .article-item {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 1rem;
+}
+
+.article-img {
+  width: 150px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+.article-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.article-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 0.25rem;
+}
+
+.article-tags .tag {
+  background-color: #eef;
+  color: #336;
+  font-size: 0.8rem;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.article-title {
+  font-weight: bold;
+  color: #333;
+  text-decoration: none;
+  line-height: 1.4;
+}
+
+.article-title:hover {
+  text-decoration: underline;
+}
+
+/* 右カラム（タグ検索）固定 */
+#tag-search {
+    position: fixed;        /* 画面右側に固定 */
+    top: 100px;             /* ヘッダー下に配置 */
+    right: 20px;            /* 右端からの余白 */
+    width: 25vw;            /* 画面幅の25％を使用 */
+    min-width: 200px;       /* 最小幅 */
+    max-width: 1000px;       /* 最大幅 */
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    height: auto;
+    z-index: 999;
+    overflow: auto;         /* 中身が増えてもスクロール可能 */
+}
+
+#tag-search h2 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+#tag-search input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#tag-list .tag {
+    display: inline-block;
+    background-color: #eef;
+    color: #336;
+    padding: 4px 8px;
+    margin: 3px;
+    border-radius: 5px;
+    font-size: 0.9em;
+    line-height: 1.2;        /* 行の高さを固定 */
+    font-weight: normal;     /* 太字にせず固定 */
+    min-width: 40px;         /* 文字量が少なくても横幅固定 */
+    text-align: center;      /* 横中央揃え */
+    box-sizing: border-box;  /* paddingを含めて幅計算 */
+    cursor: pointer;
+    user-select: none;
+}
+
+#tag-list .tag.selected {
+    background-color: #336;
+    color: #fff;
+    font-weight: normal;     /* 太字にせず文字サイズ固定 */
+}
+
+
+#search-input {
+    min-height: 40px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 5px;
+    margin-bottom: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    background-color: #fff;
+    cursor: default;
+}
+
+#search-input .tag {
+    display: inline-block;
+    background-color: #eef; /* 常に薄い色 */
+    color: #336;
+    padding: 2px 8px;
+    border-radius: 5px;
+    font-size: 0.9em;
+}
+
 /* ===== スマホ用レスポンシブ ===== */
 @media (max-width: 768px) {
     .menu-toggle {
@@ -249,6 +380,13 @@ img {
 
     .hero h1 {
         font-size: 28px;
+    }
+
+    #tag-search {
+        position: static;       /* 固定解除 */
+        width: 90%;             /* 幅を画面に合わせる */
+        max-width: 600px;       /* 最大幅 */
+        margin: 0 auto 20px auto; /* 上0 下20px 左右自動で中央 */
     }
 }
 
