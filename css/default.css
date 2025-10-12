@@ -87,17 +87,19 @@ main {
 section {
     margin: 30px auto;
     max-width: 800px;
-    padding: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
 .about-details p {
-    margin: 10px auto;
+    font-size: 18px;
+    margin: 50px auto;
 }
 
-.about-details h2 {
+.about-details h3 {
     font-size: 1.5em;
-    color: #3bccea;
-    border-bottom: 2px solid #dbe86c;
+    border-bottom: 2px dotted #dbe86c;
+    padding-top: 25px;
     padding-bottom: 10px;
     margin-bottom: 15px;
     text-align: center;
@@ -137,17 +139,21 @@ section {
     font-size: 16px;         /* 文字サイズ調整 */
 }
 
-
 /* Heroセクション */
 .hero {
     text-align: center;
     color: brack;
-    padding: 40px 20px;
+    padding: 20px 20px;
 }
 
 .hero h1 {
     font-size: 2.5em;
     margin-bottom: 0px;
+    border-bottom: 4px solid #dbe86c;
+}
+
+.hero h2 {
+    margin-top: 20px;
     border-bottom: 4px solid #dbe86c;
 }
 
@@ -341,6 +347,44 @@ img {
     font-size: 0.9em;
 }
 
+/* 戻るボタンのデザイン */
+.back-button-container {
+    text-align: center;
+    margin: 50px 0;
+}
+
+.back-button {
+    background-color: #2b6b4d;
+    color: #fff;
+    border: none;
+    padding: 12px 28px;
+    font-size: 16px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.back-button:hover {
+    background-color: #3b8561;
+    transform: scale(1.05);
+}
+
+.back-button:active {
+    transform: scale(0.98);
+}
+
+/* シェアボタン（アニメーションなし） */
+.share-container {
+    text-align: center;
+    margin: 60px 0;
+}
+
+.share-container p {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
 /* ===== スマホ用レスポンシブ ===== */
 @media (max-width: 768px) {
     .menu-toggle {
@@ -387,6 +431,14 @@ img {
         width: 90%;             /* 幅を画面に合わせる */
         max-width: 600px;       /* 最大幅 */
         margin: 0 auto 20px auto; /* 上0 下20px 左右自動で中央 */
+    }
+    .back-button {
+        width: 80%;
+        font-size: 18px;
+    }
+    .share-btn img {
+        width: 40px;
+        height: 40px;
     }
 }
 

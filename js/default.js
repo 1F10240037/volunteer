@@ -113,3 +113,16 @@ function filterBySelectedTags() {
 function updateHitCount(count) {
     document.getElementById('hit-count').textContent = `ヒット件数: ${count}`;
 }
+
+// 「お知らせ一覧に戻る」ボタンの動作
+document.addEventListener('DOMContentLoaded', () => {
+    const backButton = document.getElementById('backButton');
+    if (backButton) {
+        backButton.addEventListener('click', () => {
+            // report.html へ戻る（お知らせ一覧ページ）
+            window.location.href = '/report.html';
+        });
+    }
+});
+
+
