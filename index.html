@@ -1,75 +1,141 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="/img/こもれび.png" type="image/png">
-    <title>こもれび</title>
-    <link rel="stylesheet" type="text/css" href="css/default.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="img/こもれび.png" type="image/png">
+  <title>こもれび</title>
+  <link rel="stylesheet" type="text/css" href="css/default.css">
+  <link rel="stylesheet" href="css/hero.css">
 </head>
 <body>
-    <header>
-        <div id="logo_area">
-            <a href="/index.html"><figure id="logo" background-image="img/komorebi.png"></figure></a>
+  <header>
+    <div id="logo_area">
+      <a href="/index.html"><figure id="logo" background-image="img/komorebi.png"></figure></a>
+    </div>
+    <div class="header-container">
+      <button class="menu-toggle" aria-label="メニューを開く">&#9776;</button>
+    </div>
+    <ul class="navbar">
+      <li><a href="/index.html">トップページ</a></li>
+      <li><a href="/about.html">こもれびについて</a></li>
+      <li><a href="/report.html">活動報告</a></li>
+      <li><a href="/support.html">寄付・協賛</a></li>
+      <li><a href="/contact.html">お問い合わせ</a></li>
+      <li><a href="https://www.instagram.com/komorebi_volo/">Instagram</a></li>
+    </ul>
+  </header>
+
+  <main>
+    <!-- ▼▼ ヒーロースライドショー ▼▼ -->
+    <div class="hero-wrap" aria-label="サイトのハイライト">
+      <div class="hero" id="hero">
+        <div class="slides" id="slides">
+          <!-- Slide 1 -->
+          <article class="slide" data-loaded="true" aria-roledescription="slide" aria-label="1 / 3">
+            <img class="slide__img" src="img/hero1.jpg" alt="ヒーロー画像1" loading="eager">
+            <div class="slide__ph">
+              <div>
+                <h2>ここにメインコピー</h2>
+                <p>画像未決定でも見栄えするプレースホルダー。</p>
+              </div>
+            </div>
+            <div class="slide__overlay">
+              <div>
+                <div class="slide__title">キャッチコピーが入ります</div>
+                <p class="slide__desc">団体の魅力や最新情報を 1〜2 行で。</p>
+              </div>
+            </div>
+          </article>
+
+          <!-- Slide 2 -->
+          <article class="slide" data-loaded="false" aria-roledescription="slide" aria-label="2 / 3">
+            <img class="slide__img" src="img/hero2.jpg" alt="ヒーロー画像2" loading="lazy">
+            <div class="slide__ph">
+              <div>
+                <h2>スライド 2</h2>
+                <p>後で画像差し替え。</p>
+              </div>
+            </div>
+            <div class="slide__overlay">
+              <div>
+                <div class="slide__title">見出しテキスト</div>
+                <p class="slide__desc">イベント告知などに。</p>
+              </div>
+            </div>
+          </article>
+
+          <!-- Slide 3 -->
+          <article class="slide" data-loaded="false" aria-roledescription="slide" aria-label="3 / 3">
+            <img class="slide__img" src="img/hero3.jpg" alt="ヒーロー画像3" loading="lazy">
+            <div class="slide__ph">
+              <div>
+                <h2>スライド 3</h2>
+                <p>このまま公開してもOK。</p>
+              </div>
+            </div>
+            <div class="slide__overlay">
+              <div>
+                <div class="slide__title">シンプル＆軽量</div>
+                <p class="slide__desc">vanilla JS・依存なし。</p>
+              </div>
+            </div>
+          </article>
         </div>
-        <div class="header-container">
-            <button class="menu-toggle" aria-label="メニューを開く">&#9776;</button>
+
+        <!-- Controls -->
+        <div class="ctrl" aria-hidden="false">
+          <button class="btn btn--prev" id="prev" type="button" aria-label="前のスライド">❮</button>
+          <button class="btn btn--next" id="next" type="button" aria-label="次のスライド">❯</button>
+          <div class="dots" id="dots" role="tablist" aria-label="スライド切替"></div>
         </div>
-        <ul class="navbar">
-            <li><a href="/index.html">トップページ</a></li>
-            <li><a href="/about.html">こもれびについて</a></li>
-            <li><a href="/report.html">活動報告</a></li>
-            <li><a href="/support.html">寄付・協賛</a></li>
-            <li><a href="/contact.html">お問い合わせ</a></li>
-            <li><a href="https://www.instagram.com/komorebi_volo/">Instagram</a></li>
-        </ul>
-    </header>
-    <main>
-        <section class="hero">
-            <h1>学生団体 こもれび</h1>
-        </section>
+      </div>
+    </div>
+    <!-- ▲▲ スライドショーここまで ▲▲ -->
 
-        <section class="about-details">
-            <p>こもれびは社会貢献活動を主軸とした非営利団体です。<br>現在は被災地支援(能登半島)と児童養護施設支援を行っています。</p>
-        </section>
+    <section class="about-details">
+      <p>こもれびは社会貢献活動を主軸とした非営利団体です。<br>現在は被災地支援(能登半島)と児童養護施設支援を行っています。</p>
+    </section>
 
-        <!-- お知らせセクション -->
-        <section class="about-details">
-            <h2>お知らせ</h2>
-            <p>最新情報を随時更新いたしますので、お待ちください。</p>
-            <ul>
-                <li>2024.12.31 <a href="contact.html">新機能の希望があれば</a></li>
-                <li>2024.12.30 <a href="contact.html">サイトで紹介させていただく団体を募集しています</a></li>
-                <li>2024.12.30 <a href="contact.html">協力してくださる団体を募集しています</a></li>
-            </ul>
-        </section>
+    <!-- お知らせセクション -->
+    <section class="about-details">
+      <h2>お知らせ</h2>
+      <p>最新情報を随時更新いたしますので、お待ちください。</p>
+      <ul>
+        <li>2024.12.31 <a href="contact.html">新機能の希望があれば</a></li>
+        <li>2024.12.30 <a href="contact.html">サイトで紹介させていただく団体を募集しています</a></li>
+        <li>2024.12.30 <a href="contact.html">協力してくださる団体を募集しています</a></li>
+      </ul>
+    </section>
 
-        <!-- 活動報告セクション -->
-        <section class="about-details">
-            <h2><a href="/report.html">活動報告</a></h2>
-            <ul id="latest-reports"></ul>
-            <script>
-            fetch('articles.json')
-            .then(res => res.json())
-            .then(articles => {
-                const list = document.getElementById('latest-reports');
-                articles.slice(0, 5).forEach(article => {
-                const li = document.createElement('li');
-                li.innerHTML = `${article.date} <a href="${article.url}">${article.title}</a>`;
-                list.appendChild(li);
-                });
+    <!-- 活動報告セクション -->
+    <section class="about-details">
+      <h2><a href="/report.html">活動報告</a></h2>
+      <ul id="latest-reports"></ul>
+      <script>
+        fetch('articles.json')
+          .then(res => res.json())
+          .then(articles => {
+            const list = document.getElementById('latest-reports');
+            articles.slice(0, 5).forEach(article => {
+              const li = document.createElement('li');
+              li.innerHTML = `${article.date} <a href="${article.url}">${article.title}</a>`;
+              list.appendChild(li);
             });
-            </script>
-        </section>
+          });
+      </script>
+    </section>
 
-        <section class="about-details">
-            <h2>連絡先</h2>
-            <p>協賛や寄付、なんらかの形でご支援をご検討くださる場合は、<br>以下のメールアドレスにご連絡ください。</p>
-            <p>団体メールアドレス：komorebi.volo@gmail.com</p>
-        </section>
+    <section class="about-details">
+      <h2>連絡先</h2>
+      <p>協賛や寄付、なんらかの形でご支援をご検討くださる場合は、<br>以下のメールアドレスにご連絡ください。</p>
+      <p>団体メールアドレス：komorebi.volo@gmail.com</p>
+    </section>
 
-        
-    </main>
-    <script src="js/default.js"></script>
+  </main>
+
+  <script src="js/default.js"></script>
+  <!-- キャッシュバスターを付ける -->
+  <script src="js/hero.js?v=fix6" defer></script>
 </body>
 </html>

@@ -1,259 +1,139 @@
 /* ===== ベーススタイル ===== */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
+html, body { width: 100%; }
 body {
-    font-family: 'Arial', sans-serif;
-    line-height: 1.6;
-    background-color: #9dcefc;
+  font-family: 'Arial', sans-serif;
+  line-height: 1.6;
+  background-color: #9dcefc; /* ページの青背景 */
+  overflow-x: hidden;        /* 横スクロール禁止（保険） */
 }
 
 /* ===== ヘッダー ===== */
 header {
-    position: fixed;       /* 画面上に固定 */
-    top: 0;
-    left: 0;
-    width: 100%;
-    background-color: #333;
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0.5rem 1rem;
-    z-index: 1000;         /* 前面表示 */
-    font-size: 18px;
+  position: fixed; top: 0; left: 0; width: 100%;
+  background-color: #333; color: white;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0.5rem 1rem; z-index: 1000; font-size: 18px;
 }
 
 /* ロゴ */
 #logo {
-    width: 150px;
-    height: 50px;
-    background-image: url('../img/komorebi.png');
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: left center;
-    flex-shrink: 0;        /* 縮小防止 */
+  width: 150px; height: 50px;
+  background-image: url('../img/komorebi.png');
+  background-size: contain; background-repeat: no-repeat;
+  background-position: left center;
+  flex-shrink: 0;
 }
 
 /* タイトルとハンバーガー */
-.header-container {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-}
-
-.site-title {
-    font-size: 18px;
-    color: white;
-}
+.header-container { display: flex; align-items: center; gap: 1rem; }
+.site-title { font-size: 18px; color: white; }
 
 /* ハンバーガーメニュー */
 .menu-toggle {
-    background: none;
-    border: none;
-    color: white;
-    font-size: 24px;
-    cursor: pointer;
-    display: none;          /* PCでは非表示 */
+  background: none; border: none; color: white;
+  font-size: 24px; cursor: pointer; display: none; /* PCでは非表示 */
 }
 
 /* ===== ナビゲーション ===== */
-.navbar {
-    display: flex;
-    gap: 1.5rem;
-    list-style: none;
-}
+.navbar { display: flex; gap: 1.5rem; list-style: none; }
+.navbar li a { color: white; font-weight: bold; text-decoration: none; }
+.navbar li a:hover { color: #ff9800; text-decoration: underline; }
 
-.navbar li a {
-    color: white;
-    font-weight: bold;
-    text-decoration: none;
-}
+/* ===== メイン（ヘッダー分だけ下げる） ===== */
+:root { --header-h: 72px; }  /* hero.js が上書きします */
+main { padding-top: var(--header-h); }
 
-.navbar li a:hover {
-    color: #ff9800;
-    text-decoration: underline;
+/* ──────────────────────────────────────────────
+   ★ ここが重要：汎用セクションの装飾は
+   「.about-details」にだけ適用し、ヒーローには当てない。
+   ────────────────────────────────────────────── */
+.about-details {
+  margin: 30px auto;
+  max-width: 800px;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
-
-/* ===== メイン ===== */
-main {
-    margin-top: 80px;       /* 固定ヘッダー分の余白 */
-}
-
-/* ===== セクション ===== */
-section {
-    margin: 30px auto;
-    max-width: 800px;
-    background: #fff;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 20px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-}
-
-.about-details p {
-    margin: 10px auto;
-}
+.about-details p { margin: 10px auto; }
 
 .about-details h2 {
-    font-size: 1.5em;
-    color: #3bccea;
-    border-bottom: 2px solid #dbe86c;
-    padding-bottom: 10px;
-    margin-bottom: 15px;
-    text-align: center;
+  font-size: 1.5em; color: #3bccea;
+  border-bottom: 2px solid #dbe86c;
+  padding-bottom: 10px; margin-bottom: 15px; text-align: center;
 }
 
-.about-details h3 a {
-    color: #0a9396;
-    font-weight: bold;
-    text-decoration: none;
-}
+.about-details h3 a { color: #0a9396; font-weight: bold; text-decoration: none; }
+.about-details h3 a:hover { text-decoration: underline; }
 
-.about-details h3 a:hover {
-    text-decoration: underline;
-}
-
-/* 箇条書きリストを点の位置で揃える */
-.about-details ul {
-    list-style-type: disc;   /* 丸にする */
-    padding-left: 30px;      /* 左側の余白を統一 */
-    margin-bottom: 20px;     /* 下の余白 */
-}
-
-.about-details ul li {
-    display: list-item;      /* flexを外して標準表示に */
-    margin: 5px 0;           /* 行間を調整 */
-    font-size: 16px;         /* 文字サイズ調整 */
-}
-
+.about-details ul,
 .about-details ol {
-    padding-left: 30px;      /* 左側の余白を統一 */
-    margin-bottom: 20px;     /* 下の余白 */
+  padding-left: 30px; margin-bottom: 20px;
 }
-
+.about-details ul li,
 .about-details ol li {
-    display: list-item;      /* flexを外して標準表示に */
-    margin: 5px 0;           /* 行間を調整 */
-    font-size: 16px;         /* 文字サイズ調整 */
+  display: list-item; margin: 5px 0; font-size: 16px;
 }
 
-
-/* Heroセクション */
+/* ====== ★ ヒーロー関連は「デフォルトCSSで装飾しない」 ====== */
+/* 以前の .hero の背景やパディングを明示的に無効化して衝突を回避 */
+.hero-wrap {
+  /* ここでは何も装飾しない。hero.css側で全て管理 */
+  margin: 0 !important; padding: 0 !important;
+  max-width: none !important; border: 0 !important;
+  border-radius: 0 !important; box-shadow: none !important;
+  background: transparent !important;
+}
 .hero {
-    text-align: center;
-    background: #b0dfe0;
-    color: brack;
-    padding: 40px 20px;
-}
-
-.hero h1 {
-    font-size: 2.5em;
-    margin-bottom: 0px;
+  margin: 0 !important; padding: 0 !important;
+  background: transparent !important; color: inherit !important;
+  border: 0 !important; border-radius: 0 !important; box-shadow: none !important;
+  text-align: initial !important;
 }
 
 /* ===== リンク & 画像 ===== */
-a {
-    text-decoration: none;
-}
+a { text-decoration: none; }
+a:hover { text-decoration: underline; }
+img { max-width: 100%; height: auto; }
 
-a:hover {
-    text-decoration: underline;
-}
-
-img {
-    max-width: 100%;
-    height: auto;
-}
-
+/* 画像レイアウト（記事側の便利クラス） */
 .image-pair {
-    display: flex;
-    justify-content: center; /* 中央寄せ（必要な場合） */
-    gap: 4px; /* 画像の隙間（不要なら0でもOK） */
-    margin-bottom:4px;
+  display: flex; justify-content: center; gap: 4px; margin-bottom:4px;
 }
-
 .image-pair img {
-    flex: 1 1 0; /* 2枚が均等に幅を分ける */
-    max-width: calc(50% - 2px); /* 横幅を50%に（gap分を調整） */
-    height: auto;
+  flex: 1 1 0; max-width: calc(50% - 2px); height: auto;
 }
 
 .image-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr; /* 2列 */
-    grid-template-rows: auto auto;  /* 2行 */
-    gap: 4px; /* 画像の隙間 */
-    max-width: 100%;
-    margin-bottom:4px;
+  display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: auto auto;
+  gap: 4px; max-width: 100%; margin-bottom:4px;
 }
+.image-grid img { width: 100%; height: auto; object-fit: cover; }
 
-.image-grid img {
-    width: 100%;
-    height: auto;
-    object-fit: cover; /* 必要なら切り抜きで揃える */
-}
-
-.form-container {
-    width: 100%;               /* 親に合わせる */
-    max-width: 100%;           /* main の幅いっぱいに */
-    box-sizing: border-box;
-    margin: 20px 0;
-}
-
-.form-container iframe {
-    width: 100%;
-    height: 1500px;            /* 高さは必要に応じて */
-    border: none;
-}
+/* フォーム埋め込み */
+.form-container { width: 100%; max-width: 100%; box-sizing: border-box; margin: 20px 0; }
+.form-container iframe { width: 100%; height: 1500px; border: none; }
 
 /* ===== スマホ用レスポンシブ ===== */
 @media (max-width: 768px) {
-    .menu-toggle {
-        display: block;  /* ハンバーガー表示 */
-    }
+  .menu-toggle { display: block; }
 
-    .navbar {
-        display: none;   /* 初期非表示 */
-        flex-direction: column;
-        background: #1fbcd8;
-        position: absolute;
-        top: 100%;       /* ヘッダー下に隙間なし */
-        left: 0;
-        width: 100%;
-        padding: 0;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    }
-
-    .navbar.active {
-        display: flex;
-    }
-
-    .navbar li {
-        display: flex;              /* li を flex に */
-        justify-content: flex-end;  /* 文字を右端に揃える */
-        margin: 0;                  /* 上下余白を削除 */
-        height: 50px;               /* li の高さを指定（行幅を調整） */
-        align-items: center;        /* 文字を縦中央に */
-    }
-
-    .navbar li a {
-        text-align: center;          /* 右寄せ */
-        padding: 20px 20px;            /* 左右に余白 */
-        font-size: 18px;            /* 文字サイズを大きく */
-        width: auto;                /* 幅は自動 */
-    }
-
-    .hero h1 {
-        font-size: 28px;
-    }
+  .navbar {
+    display: none; flex-direction: column; background: #1fbcd8;
+    position: absolute; top: 100%; left: 0; width: 100%; padding: 0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  .navbar.active { display: flex; }
+  .navbar li {
+    display: flex; justify-content: flex-end; margin: 0; height: 50px; align-items: center;
+  }
+  .navbar li a { text-align: center; padding: 20px 20px; font-size: 18px; width: auto; }
 }
 
+/* 追加の見出しサイズ調整（任意） */
 @media (max-width: 480px) {
-    .hero h1 {
-        font-size: 24px;
-    }
+  /* 記事用見出しの微調整などがあればここに */
 }
