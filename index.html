@@ -108,7 +108,7 @@
       </ul>
     </section>
 
-    <!-- 活動報告セクション -->
+    <!-- 活動報告セクション（統合版：リッチ or シンプル自動切替） -->
     <section class="about-details">
       <h2><a href="/report.html">活動報告</a></h2>
       <ul id="latest-reports"></ul>
@@ -117,11 +117,38 @@
           .then(res => res.json())
           .then(articles => {
             const list = document.getElementById('latest-reports');
-            articles.slice(0, 5).forEach(article => {
+            (articles || []).slice(0, 5).forEach(article => {
               const li = document.createElement('li');
-              li.innerHTML = `${article.date} <a href="${article.url}">${article.title}</a>`;
+              li.classList.add('article-item');
+
+              const hasImg = typeof article.img === 'string' && article.img.trim() !== '';
+              const hasTags = Array.isArray(article.tag) && article.tag.length > 0;
+
+              if (hasImg || hasTags) {
+                // リッチ表示（画像・タグ・日付・タイトル）
+                const tagsHTML = hasTags
+                  ? article.tag.map(t => `<span class="tag">${t}</span>`).join(' ')
+                  : '';
+                li.innerHTML = `
+                  ${hasImg ? `<img src="${article.img}" alt="${article.title || '記事画像'}" class="article-img">` : ''}
+                  <div class="article-content">
+                    <div class="article-meta">
+                      <span class="article-date">${article.date || ''}</span>
+                      <div class="article-tags">${tagsHTML}</div>
+                    </div>
+                    <a href="${article.url}" class="article-title">${article.title || ''}</a>
+                  </div>
+                `;
+              } else {
+                // シンプル表示（日時＋タイトル）
+                li.innerHTML = `${article.date || ''} <a href="${article.url}">${article.title || ''}</a>`;
+              }
+
               list.appendChild(li);
             });
+          })
+          .catch(err => {
+            console.error('articles.json の読み込みに失敗しました:', err);
           });
       </script>
     </section>
