@@ -1,0 +1,68 @@
+/* ===== アプリ機能紹介用 ===== */
+.feature-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  margin: 60px auto;
+  padding-left: 60px;  /* ← 左右の余白を追加 */
+  padding-right: 60px;
+  max-width: 1000px;
+}
+
+.feature-section:nth-child(even) {
+  flex-direction: row-reverse; /* 偶数番目は左右逆 */
+  background-color: #f3f6fa;
+}
+
+.feature-text {
+  flex: 1;
+  min-width: 280px;
+}
+
+.feature-text h3 {
+  font-size: 1.8em;
+  color: #0078d7;
+  margin-bottom: 15px;
+}
+
+.feature-text p {
+  font-size: 1.1em;
+  line-height: 1.7;
+}
+
+.feature-img {
+  flex: 1;
+  text-align: center;
+  min-width: 250px;
+}
+
+.feature-img img {
+  width: 40%; /* 縦長画像向けの幅 */
+  max-width: 250px;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.feature-img img:hover {
+  transform: scale(1.03);
+}
+
+/* スマホ対応 */
+@media (max-width: 768px) {
+  .feature-section {
+    flex-direction: column;
+    text-align: center;
+    padding: 40px 5%;
+  }
+
+  .feature-section:nth-child(even) {
+    flex-direction: column;
+  }
+
+  .feature-img img {
+    width: 70%;
+    max-width: 300px;
+  }
+}
