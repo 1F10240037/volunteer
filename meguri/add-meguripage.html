@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>めぐり – 特設ページ</title>
+  <meta name="description" content="旅と地域のつながりをテーマにしたアプリ『めぐり』。自然と人のつながり、地域再生の世界観をやさしく温かく伝える特設ページ。" />
+  <link rel="icon" href="./img/こもれび.png" />
+  <link rel="stylesheet" href="./css/add-meguripage.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <!-- ===== ナビゲーション ===== -->
+  <header class="nav" id="nav">
+    <a href="./add-meguripage.html" class="brand" aria-label="特設トップ">
+      <img src="./img/meguri-icon.png" alt="めぐりアイコン" class="brand__logo">
+    </a>
+
+    <nav class="menu" id="menu" aria-label="主要メニュー">
+      <button class="menu__item has-sub" id="aboutBtn" aria-expanded="false">アプリ概要</button>
+      <div class="submenu" id="aboutSub" aria-hidden="true">
+        <a href="#how" class="submenu__link">使い方</a>
+        <a href="#features" class="submenu__link">特徴</a>
+        <a href="#voices" class="submenu__link">地域の声</a>
+      </div>
+      <a class="menu__item" href="../index.html">公式ウェブサイト</a>
+      <a class="menu__item cta" href="#download">ダウンロード</a>
+      <a class="menu__item" href="#contact">お問い合わせ</a>
+      <a class="menu__item" href="#donate">寄付ページ</a>
+    </nav>
+
+    <button class="hamburger" id="hamburger" aria-label="メニュー" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <!-- ===== ヒーロー ===== -->
+  <section class="hero" id="hero">
+    <div class="photo-ph"></div>
+    <div class="hero__overlay"></div>
+    <div class="hero__content">
+      <h1 class="hero__title hand fade-in">めぐり</h1>
+      <!-- 回転語とスクロール表示は削除しました -->
+    </div>
+  </section>
+
+  <!-- ===== 2行コピー（スクロール後にふわっと表示） ===== -->
+  <section class="section tagline fade-in" id="tagline">
+    <div class="wrap center">
+      <p class="hand tagline__line">めぐりが導く</p>
+      <p class="hand tagline__line slow">あなたと能登の新しい出会い</p>
+    </div>
+  </section>
+
+  <!-- ===== コンセプト ===== -->
+  <section class="section concept fade-in" id="concept">
+    <div class="wrap center">
+      <h2 class="sec-title hand">“めぐり”が生まれた理由</h2>
+      <p>人と地域がもう一度つながり合い、<br>温かい循環を生むために生まれたアプリです。</p>
+    </div>
+  </section>
+
+  <section class="section story fade-in" id="story">
+    <div class="wrap">
+        <div class="cards-3">
+            <!-- 出会う -->
+            <div class="card card--step fade-in">
+                <div class="step-icon" aria-hidden="true">🔍</div>
+                <h3 class="hand">出会う</h3>
+                <p class="step-copy">地図で見つける、いま出会える見どころ。</p>
+                <a class="btn btn--line" href="#features">地図を見る</a>
+            </div>
+
+            <div class="card card--step fade-in">
+                <div class="step-icon" aria-hidden="true">🤝</div>
+                <h3 class="hand">繋がる</h3>
+                <p class="step-copy">物語に触れて、地域の想いとつながる。</p>
+                <a class="btn btn--line" href="#features">ストーリーを読む</a>
+            </div>
+
+            <!-- めぐる -->
+            <div class="card card--step fade-in">
+                <div class="step-icon" aria-hidden="true">🌱</div>
+                <h3 class="hand">めぐる</h3>
+                <p class="step-copy">食べる・買う・寄付する——想いが巡る。</p>
+                <a class="btn btn--line" href="#donate">応援の方法</a>
+            </div>
+        </div>
+    </div>
+  </section>
+
+  <!-- ===== アプリでできること ===== -->
+  <section class="section features fade-in" id="features">
+    <div class="wrap center">
+      <h2 class="sec-title hand">アプリでできること</h2>
+      <p>“めぐり”は地域と人をつなぐ7つの機能で<br>旅と交流をサポートします。</p>
+    </div>
+
+    <div class="wrap">
+      <article class="feature row fade-in">
+        <div class="feature__text">
+          <h3 class="hand">観光・飲食マップ</h3>
+          <p>観光地は緑ピン、飲食店は赤ピンで表示。<br>スポットに近づくとナレーションが自動再生されます。</p>
+        </div>
+        <div class="feature__media"><div class="ph ph--app"></div></div>
+      </article>
+
+      <article class="feature row alt fade-in">
+        <div class="feature__text">
+          <h3 class="hand">復興ストーリー</h3>
+          <p>被災地域の人々や協力者の物語を読むことができます。</p>
+        </div>
+        <div class="feature__media"><div class="ph ph--app"></div></div>
+      </article>
+
+      <article class="feature row fade-in">
+        <div class="feature__text">
+          <h3 class="hand">観光スポット一覧</h3>
+          <p>各地域のおすすめスポットを一覧で確認できます。</p>
+        </div>
+        <div class="feature__media"><div class="ph ph--app"></div></div>
+      </article>
+
+      <article class="feature row alt fade-in">
+        <div class="feature__text">
+          <h3 class="hand">飲食店一覧</h3>
+          <p>地元の味や人気店をチェックできます。</p>
+        </div>
+        <div class="feature__media"><div class="ph ph--app"></div></div>
+      </article>
+
+      <article class="feature row fade-in">
+        <div class="feature__text">
+          <h3 class="hand">指定避難場所マップ（オフライン対応）</h3>
+          <p>通信環境がなくても避難所を確認できる安心の地図機能。</p>
+        </div>
+        <div class="feature__media"><div class="ph ph--app"></div></div>
+      </article>
+
+      <article class="feature row alt fade-in" id="how">
+        <div class="feature__text">
+          <h3 class="hand">使い方</h3>
+          <p>アプリで利用できる機能の詳しい説明を見れます。<br>どなたでも簡単に利用できます。</p>
+        </div>
+        <div class="feature__media"><div class="ph ph--app"></div></div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ===== ダウンロード ===== -->
+  <section class="section download fade-in" id="download">
+    <div class="wrap center">
+      <h2 class="sec-title hand">今すぐはじめる</h2>
+      <div class="dl-buttons">
+        <a class="btn" href="#">iOS</a>
+        <a class="btn ghost" href="#">Android</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 地域の声 ===== -->
+  <section class="section voices fade-in" id="voices">
+    <div class="wrap center">
+      <h2 class="sec-title hand">地域の声</h2>
+      <div class="ph ph--bg">地域の方々のコメントを掲載予定</div>
+    </div>
+  </section>
+
+  <!-- ===== 未来（寄付） ===== -->
+  <section class="section future fade-in" id="donate">
+    <div class="wrap center">
+      <h2 class="sec-title hand">“めぐり”が描くこれから</h2>
+      <p>地域と人が支え合う未来を、一緒に築いていきましょう。</p>
+      <a class="btn" href="#">寄付する</a>
+    </div>
+  </section>
+
+  <!-- ===== フッター ===== -->
+  <footer class="footer" id="contact">
+    <div class="wrap footer__grid">
+      <nav class="footer__col">
+        <h4>リンク</h4>
+        <ul>
+          <li><a href="../index.html">公式サイト</a></li>
+          <li><a href="#download">ダウンロード</a></li>
+          <li><a href="#donate">寄付ページ</a></li>
+        </ul>
+      </nav>
+      <nav class="footer__col">
+        <h4>SNS</h4>
+        <ul>
+          <li>X</li><li>Instagram</li><li>Facebook</li>
+        </ul>
+      </nav>
+      <nav class="footer__col">
+        <h4>ポリシー</h4>
+        <ul>
+          <li>プライバシー</li>
+          <li>利用規約</li>
+        </ul>
+      </nav>
+    </div>
+    <div class="wrap footer__bottom">
+      <small>© <span id="y"></span> こもれび</small>
+    </div>
+  </footer>
+
+  <script src="./js/add-meguripage.js" defer></script>
+</body>
+</html>
