@@ -6,7 +6,6 @@
   <title>寄付のお願い – めぐり / こもれび</title>
   <meta name="description" content="こもれびの活動を応援してくださる皆さまへ。安全・透明性を大切にした寄付のご案内です。銀行振込と物品支援（事前申請）を受け付けています。">
   <link rel="icon" href="./img/komorebi.jpg" />
-  <!-- 既存の世界観を継承 -->
   <link rel="stylesheet" href="./css/add-meguripage.css" />
   <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./css/theme-warm.css" />
@@ -49,26 +48,20 @@
 
     .section.tight{ padding:72px 0; }
 
-    /* 物品支援の箇条書きの色分け */
+    /* 箇条書きの色分け */
     .accept-list li::marker{ color:#1f7a4f; }
     .deny-list li::marker{ color:#b25b5b; }
 
-    /* スマホ最適化（カード余白） */
+    /* モバイル余白微調整 */
     @media (max-width: 880px){
       .donate-card{ padding:16px 14px; }
     }
 
-    /* ===== ハンバーガーとメニューの軽微な使い勝手調整 ===== */
-    .hamburger{
-      z-index: 2000;
-      width: 44px; height: 44px;
-      padding: 8px;
-    }
-    .menu .menu__item{
-      padding-block: 12px;
-    }
+    /* ハンバーガーのヒットエリア最適化（既存に干渉しない最小限） */
+    .hamburger{ z-index:2000; width:44px; height:44px; padding:8px; }
+    .menu .menu__item{ padding-block:12px; }
 
-    /* フッター追加 */
+    /* フッター（お問い合わせページと統一） */
     footer.footer{
       background:#f8f9f8;
       margin-top:80px;
@@ -82,30 +75,14 @@
       gap:24px;
       margin-bottom:30px;
     }
-    .footer__col h4{
-      color:var(--brand);
-      margin-bottom:10px;
-      font-size:1.1rem;
-    }
-    .footer__col ul{
-      list-style:none;
-      padding:0;
-      margin:0;
-      line-height:1.9;
-    }
-    .footer__col a{
-      color:#333;
-      text-decoration:none;
-    }
-    .footer__col a:hover{
-      text-decoration:underline;
-    }
-    .footer__bottom{
-      text-align:center;
-      border-top:1px solid #ddd;
-      padding-top:20px;
-      font-size:.9rem;
-    }
+    .footer__col h4{ color:var(--brand); margin-bottom:10px; font-size:1.1rem; }
+    .footer__col ul{ list-style:none; padding:0; margin:0; line-height:1.9; }
+    .footer__col a{ color:#333; text-decoration:none; }
+    .footer__col a:hover{ text-decoration:underline; }
+    .footer__bottom{ text-align:center; border-top:1px solid #ddd; padding-top:20px; font-size:.9rem; }
+
+    /* Gmail直リンク注記（小さめ表示） */
+    .inline-help { font-size:.9rem; margin-left:.6rem; }
   </style>
 </head>
 <body>
@@ -137,10 +114,133 @@
     </div>
   </section>
 
-  <!-- ===== 各セクション（変更なし） ===== -->
-  <!-- ここまでの内容は既存と同じなので省略可能 -->
+  <!-- ===== 使い道・透明性 ===== -->
+  <section class="section tight">
+    <div class="wrap">
+      <div class="note">
+        <strong>ご支援の使い道</strong><br>
+        アプリの保守・改善、現地取材・コンテンツ制作、イベント運営、災害復興連携の費用などに充てさせていただきます。年次の活動報告・収支概要をサイトで公開します。
+      </div>
+    </div>
+  </section>
 
-  <!-- ===== フッター追加部分 ===== -->
+  <!-- ===== 寄付方法（銀行振込） ===== -->
+  <section class="section tight" id="bank">
+    <div class="wrap">
+      <h2 class="sec-title hand center">寄付方法（銀行振込）</h2>
+      <p style="text-align:center; color:#555; margin-top:-6px; margin-bottom:18px;">
+        ※ 現在は銀行振込のみ対応しています。クレジットカード／スマホ決済は今後導入予定です。対応開始時は本ページおよび公式サイトにてご案内します。
+      </p>
+
+      <div class="donate-card" style="max-width:760px;margin:0 auto;">
+        <h3 class="hand">銀行振込</h3>
+        <p>皆さまからのご支援は、活動費（保守・改善、現地取材、コンテンツ制作、イベント運営、復興連携）に大切に活用します。<br>収支の概要は年次で公開します。</p>
+
+        <div class="ph ph--bg" style="margin-top:10px">
+          振込先：城北信用金庫 赤羽支店（支店番号 012） 普通 0067833<br>
+          名義：こもれび　代表　布施　拓真<br>
+        </div>
+
+        <div class="note" style="margin-top:12px">
+          <ul style="margin:0;padding-left:1.1em;">
+            <li>領収書が必要な場合は、振込後に「氏名／振込日／金額／連絡先」を <a href="./contact.html">お問い合わせ</a> からお知らせください。</li>
+            <li>振込手数料はご負担をお願いいたします。</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 物品支援（事前申請） ===== -->
+  <section class="section tight" id="in-kind">
+    <div class="wrap">
+      <h2 class="sec-title hand center">物品支援について</h2>
+
+      <div class="note" style="margin-bottom:16px">
+        <strong>お願い</strong><br>
+        現場で本当に必要な物だけを受け入れるため、事前に内容を確認させてください。下の「事前申請」からご連絡いただき、<u>受け入れ可否と送付先</u>を担当者よりご案内します。<br>
+        ※ 申請なしに送付いただいた物品は受け取りをお断りする場合があります。
+      </div>
+
+      <div class="donate-grid">
+        <div class="donate-card">
+          <h3 class="hand">現在必要としている物（例）</h3>
+          <ul class="accept-list">
+            <li>文房具（未使用）：A4コピー用紙、油性ペン、ノート 等</li>
+            <li>イベント消耗品：養生テープ、ケーブルタイ、手袋 等</li>
+            <li>衛生消耗品（未開封・期限内）：マスク、ウェットティッシュ 等</li>
+          </ul>
+          <p style="margin-top:.6rem;color:#666">※ 時期により変動します。最新状況は事前申請でご確認ください。</p>
+        </div>
+
+        <div class="donate-card">
+          <h3 class="hand">受け入れできない物（例）</h3>
+          <ul class="deny-list">
+            <li>大型家具・家電（保管/搬送/安全面の都合）</li>
+            <li>開封済みの食品・衛生品／消費期限切れの物</li>
+            <li>使用困難な状態の中古品（破損・汚損・部品欠品）</li>
+          </ul>
+          <p style="margin-top:.6rem;color:#666">※ 安全面・運用面の観点からお断りしています。</p>
+        </div>
+      </div>
+
+      <div class="donate-card" style="margin-top:18px">
+        <h3 class="hand">物品支援の事前申請</h3>
+        <p>下記のいずれかの方法でご連絡ください。確認後、受け入れ可否と送付先を返信します。</p>
+
+        <div class="donate-cta" style="margin-top:8px">
+          <!-- Googleフォーム等のURLに差し替え推奨 -->
+          <a class="btn" href="https://docs.google.com/forms/d/XXXXXXXXXXXX" target="_blank" rel="noopener">申請フォームを開く</a>
+
+          <!-- mailto と Gmail の2本立て（JS不要） -->
+          <a
+            class="btn ghost"
+            id="mailto-proposal"
+            href="mailto:komorebi.volo@gmail.com?subject=%E7%89%A9%E5%93%81%E6%94%AF%E6%8F%B4%E3%81%AE%E7%94%B3%E8%AB%8B%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6&body=1)%20%E7%89%A9%E5%93%81%E5%90%8D%EF%BC%8F%E6%95%B0%E9%87%8F%EF%BC%9A%0D%0A2)%20%E7%8A%B6%E6%85%8B%EF%BC%88%E6%96%B0%E5%93%81%20or%20%E4%B8%AD%E5%8F%A4%E3%83%BB%E4%BD%BF%E7%94%A8%E5%9B%9E%E6%95%B0%EF%BC%89%EF%BC%9A%0D%0A3)%20%E5%86%99%E7%9C%9FURL%EF%BC%88%E4%BB%BB%E6%84%8F%EF%BC%89%EF%BC%9A%0D%0A4)%20%E6%83%B3%E5%AE%9A%E7%94%A8%E9%80%94%EF%BC%88%E3%81%A9%E3%81%AE%E6%B4%BB%E5%8B%95%E3%81%A7%E5%BD%B9%E7%AB%8B%E3%81%A4%E3%81%8B%EF%BC%89%EF%BC%9A%0D%0A5)%20%E9%80%81%E6%96%99%E8%B2%A0%E6%8B%85%EF%BC%88%E3%81%94%E6%8F%90%E4%BE%9B%E8%80%85%E6%A7%98%20or%20%E7%9D%80%E6%89%95%E3%81%84%E6%8F%90%E6%A1%88%20%E7%AD%89%EF%BC%89%EF%BC%9A%0D%0A6)%20%E3%81%94%E9%80%A3%E7%B5%A1%E5%85%88%EF%BC%88%E6%B0%8F%E5%90%8D%E3%83%BB%E3%83%A1%E3%83%BC%E3%83%AB%E3%83%BB%E9%9B%BB%E8%A9%B1%EF%BC%89%EF%BC%9A%0D%0A7)%20%E3%81%9D%E3%81%AE%E4%BB%96%E8%A3%9C%E8%B6%B3%EF%BC%9A"
+          >メールで申請する</a>
+          <span class="inline-help">
+            （開かない場合は
+            <a
+              href="https://mail.google.com/mail/?view=cm&to=komorebi.volo@gmail.com&su=%E7%89%A9%E5%93%81%E6%94%AF%E6%8F%B4%E3%81%AE%E7%94%B3%E8%AB%8B%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6&body=1)%20%E7%89%A9%E5%93%81%E5%90%8D%EF%BC%8F%E6%95%B0%E9%87%8F%EF%BC%9A%0D%0A2)%20%E7%8A%B6%E6%85%8B%EF%BC%88%E6%96%B0%E5%93%81%20or%20%E4%B8%AD%E5%8F%A4%E3%83%BB%E4%BD%BF%E7%94%A8%E5%9B%9E%E6%95%B0%EF%BC%89%EF%BC%9A%0D%0A3)%20%E5%86%99%E7%9C%9FURL%EF%BC%88%E4%BB%BB%E6%84%8F%EF%BC%89%EF%BC%9A%0D%0A4)%20%E6%83%B3%E5%AE%9A%E7%94%A8%E9%80%94%EF%BC%88%E3%81%A9%E3%81%AE%E6%B4%BB%E5%8B%95%E3%81%A7%E5%BD%B9%E7%AB%8B%E3%81%A4%E3%81%8B%EF%BC%89%EF%BC%9A%0D%0A5)%20%E9%80%81%E6%96%99%E8%B2%A0%E6%8B%85%EF%BC%88%E3%81%94%E6%8F%90%E4%BE%9B%E8%80%85%E6%A7%98%20or%20%E7%9D%80%E6%89%95%E3%81%84%E6%8F%90%E6%A1%88%20%E7%AD%89%EF%BC%9A%0D%0A6)%20%E3%81%94%E9%80%A3%E7%B5%A1%E5%85%88%EF%BC%88%E6%B0%8F%E5%90%8D%E3%83%BB%E3%83%A1%E3%83%BC%E3%83%AB%E3%83%BB%E9%9B%BB%E8%A9%B1%EF%BC%89%EF%BC%9A%0D%0A7)%20%E3%81%9D%E3%81%AE%E4%BB%96%E8%A3%9C%E8%B6%B3%EF%BC%9A"
+              target="_blank" rel="noopener"
+            >Gmailで開く</a>）
+          </span>
+        </div>
+
+        <details style="margin-top:12px">
+          <summary>メール申請の書式（コピー用）</summary>
+          <div class="ph ph--bg" style="margin-top:8px">
+            件名：物品支援の申請について（お名前）<br>
+            本文：<br>
+            1) 物品名／数量：<br>
+            2) 状態（新品 or 中古・使用回数）：<br>
+            3) 写真URL（任意）：<br>
+            4) 想定用途（どの活動で役立つか）：<br>
+            5) 送料負担（ご提供者様 or 着払い提案 等）：<br>
+            6) ご連絡先（氏名・メール・電話）：<br>
+            7) その他補足：
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FAQ ===== -->
+  <section class="section tight">
+    <div class="wrap">
+      <h2 class="sec-title hand center">よくあるご質問</h2>
+      <dl class="faq">
+        <dt>寄付額に下限・上限はありますか？</dt>
+        <dd>銀行振込の範囲で、特に下限は設けていません（金融機関の取り扱いに準じます）。</dd>
+        <dt>領収書の発行はできますか？</dt>
+        <dd>可能です。振込完了後に「氏名／振込日／金額／連絡先」を <a href="./contact.html">お問い合わせ</a> からお知らせください。</dd>
+        <dt>毎月の継続支援はできますか？</dt>
+        <dd>現状は銀行振込のみのため、継続支援は「毎月の自動振込設定」などをご利用ください。</dd>
+      </dl>
+    </div>
+  </section>
+
+  <!-- ===== フッター ===== -->
   <footer class="footer">
     <div class="wrap footer__grid">
       <nav class="footer__col">
@@ -170,11 +270,12 @@
     </div>
   </footer>
 
+  <!-- 既存と同じJS（ナビ動作） -->
   <script src="./js/add-meguripage.js" defer></script>
   <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const y = document.getElementById('y');
-      if (y) y.textContent = new Date().getFullYear();
+    // 年号のみ（本体JSに依存しない）
+    document.addEventListener('DOMContentLoaded', function(){
+      var y=document.getElementById('y'); if(y) y.textContent = String(new Date().getFullYear());
     });
   </script>
 </body>
