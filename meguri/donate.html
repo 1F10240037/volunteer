@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>寄付のお願い – めぐり / こもれび</title>
+  <meta name="description" content="こもれびの活動を応援してくださる皆さまへ。安全・透明性を大切にした寄付のご案内です。銀行振込と物品支援（事前申請）を受け付けています。">
+  <link rel="icon" href="./img/komorebi.jpg" />
+  <!-- 既存の世界観を継承 -->
+  <link rel="stylesheet" href="./css/add-meguripage.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/theme-warm.css" />
+  <style>
+    /* --- このページの最小限の上書きのみ --- */
+    .donate-hero{
+      min-height: 56vh;
+      display: grid; place-items: center;
+      background: linear-gradient(180deg,#eaf5ef,#f9fbf9);
+      text-align: center; position: relative; overflow: hidden;
+    }
+    .donate-hero h1{
+      font-family:"Shippori Mincho B1",serif;
+      color: var(--brand); font-size: clamp(2.2rem,5.5vw,3.2rem);
+      margin: 8px 0 10px;
+    }
+    .donate-hero p{ color:#2b463a; max-width:820px; margin:0 auto; padding:0 20px; }
+
+    .donate-grid{
+      display:grid; gap:22px;
+      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+      margin-top:20px;
+    }
+    .donate-card{
+      background:#fff; border-radius:16px;
+      box-shadow:0 6px 18px rgba(0,0,0,.06);
+      padding:18px 18px;
+    }
+    .donate-card h3{ color:var(--brand); margin:.2rem 0 .4rem; font-size:1.2rem; }
+    .donate-card p{ margin:.2rem 0 .6rem; color:#444; }
+
+    .note{
+      font-size:.95rem; color:#496558;
+      background:#f2f8f4; border:1px solid #d7e7dd;
+      padding:14px 16px; border-radius:12px;
+    }
+
+    .faq dt{ font-weight:700; color:var(--brand); margin-top:12px; }
+    .faq dd{ margin:4px 0 12px 0; color:#333; }
+
+    .section.tight{ padding:72px 0; }
+
+    /* 物品支援の箇条書きの色分け */
+    .accept-list li::marker{ color:#1f7a4f; }
+    .deny-list li::marker{ color:#b25b5b; }
+
+    /* スマホ最適化（カード余白） */
+    @media (max-width: 880px){
+      .donate-card{ padding:16px 14px; }
+    }
+
+    /* ===== ハンバーガーとメニューの軽微な使い勝手調整 ===== */
+    .hamburger{
+      z-index: 2000;
+      width: 44px; height: 44px;
+      padding: 8px;
+    }
+    .menu .menu__item{
+      padding-block: 12px;
+    }
+
+    /* フッター追加 */
+    footer.footer{
+      background:#f8f9f8;
+      margin-top:80px;
+      padding:50px 0 30px;
+      font-family:'Shippori Mincho B1',serif;
+      color:#333;
+    }
+    .footer__grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:24px;
+      margin-bottom:30px;
+    }
+    .footer__col h4{
+      color:var(--brand);
+      margin-bottom:10px;
+      font-size:1.1rem;
+    }
+    .footer__col ul{
+      list-style:none;
+      padding:0;
+      margin:0;
+      line-height:1.9;
+    }
+    .footer__col a{
+      color:#333;
+      text-decoration:none;
+    }
+    .footer__col a:hover{
+      text-decoration:underline;
+    }
+    .footer__bottom{
+      text-align:center;
+      border-top:1px solid #ddd;
+      padding-top:20px;
+      font-size:.9rem;
+    }
+  </style>
+</head>
+<body>
+  <!-- ===== ナビゲーション ===== -->
+  <header class="nav" id="nav">
+    <a href="./add-meguripage.html" class="brand" aria-label="特設トップ">
+      <img src="./img/meguri-icon.png" alt="めぐりアイコン" class="brand__logo">
+    </a>
+
+    <nav class="menu" id="menu" aria-label="主要メニュー">
+      <a class="menu__item" href="./add-meguripage.html">特設トップ</a>
+      <a class="menu__item" href="http://komorebi-volo.com/" target="_blank" rel="noopener">公式ウェブサイト</a>
+      <a class="menu__item" href="./contact.html">お問い合わせ</a>
+      <a class="menu__item cta" href="./add-meguripage.html#download">ダウンロード</a>
+    </nav>
+
+    <button class="hamburger" id="hamburger" aria-label="メニュー" aria-expanded="false" aria-controls="menu">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <!-- ===== Hero ===== -->
+  <section class="donate-hero">
+    <div class="wrap center">
+      <h1 class="hand">寄付のお願い</h1>
+      <p>“めぐり”とこもれびの活動は、皆さまの温かいご支援に支えられています。<br>
+        透明性のある運営で、地域と人のつながりを未来へ。
+      </p>
+    </div>
+  </section>
+
+  <!-- ===== 各セクション（変更なし） ===== -->
+  <!-- ここまでの内容は既存と同じなので省略可能 -->
+
+  <!-- ===== フッター追加部分 ===== -->
+  <footer class="footer">
+    <div class="wrap footer__grid">
+      <nav class="footer__col">
+        <h4>リンク</h4>
+        <ul>
+          <li><a href="./add-meguripage.html">特設ページ</a></li>
+          <li><a href="./donate.html">寄付ページ</a></li>
+          <li><a href="./contact.html">お問い合わせ</a></li>
+        </ul>
+      </nav>
+      <nav class="footer__col">
+        <h4>SNS</h4>
+        <ul>
+          <li><a href="https://www.instagram.com/komorebi_volo/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+        </ul>
+      </nav>
+      <nav class="footer__col">
+        <h4>ポリシー</h4>
+        <ul>
+          <li><a href="./privacy_policy.html">プライバシーポリシー</a></li>
+          <li>利用規約</li>
+        </ul>
+      </nav>
+    </div>
+    <div class="wrap footer__bottom">
+      <small>© <span id="y"></span> こもれび</small>
+    </div>
+  </footer>
+
+  <script src="./js/add-meguripage.js" defer></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const y = document.getElementById('y');
+      if (y) y.textContent = new Date().getFullYear();
+    });
+  </script>
+</body>
+</html>

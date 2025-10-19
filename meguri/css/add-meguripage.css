@@ -243,3 +243,94 @@ body { margin:0; font-family:"Noto Sans JP", sans-serif; background:#fff; color:
 }
 
 /* スマホ時（1カラム）は従来通りの縦並びのまま */
+
+
+/* === 追加（ナビの中央ぞろえを統一）==================== */
+/* メニューの並びを中央寄せ＆テキストも中央に */
+.nav .menu{
+  justify-content: center;   /* 横方向：中央配置 */
+  text-align: center;        /* テキスト中央 */
+}
+
+/* ボタン系（通常項目＆アプリ概要ボタン）も中央寄せに統一 */
+.nav .menu .menu__item,
+.nav .menu .has-sub{
+  text-align: center;
+}
+
+/* サブメニュー内の文言も中央寄せ */
+.nav .submenu{
+  text-align: center;
+}
+/* ====================================================== */
+
+
+/* === 追加: アプリ概要ボタンのサイズUP === */
+.has-sub {
+  font-size: clamp(1.0rem, 2.5vw, 1.1rem); /* ほんの少し大きめ */
+  font-weight: 600;
+}
+
+
+/* === 追加：スマホ時、アプリ概要の裏から下向きにスライドイン === */
+@media (max-width: 880px){
+
+  /* アプリ概要ボタンを前面にして“裏から出る”感じを作る */
+  #aboutBtn{
+    position: relative;
+    z-index: 2;
+  }
+
+  /* サブメニューはボタン直下で、閉じている間は高さ0＆クリップで隠す */
+  #aboutSub{
+    position: relative;          /* 通常フロー（縦積み） */
+    display: block !important;   /* baseの display:none を上書き */
+    background: rgba(255,255,255,.97);
+    margin-top: -6px;            /* ボタンの下に重ねて“裏から”感を出す */
+    padding-top: 6px;            /* 重ねた分の余白を中側で復元 */
+    overflow: hidden;            /* はみ出し隠す */
+    max-height: 0;               /* 初期＝畳む */
+    opacity: 0;
+    transform: translateY(-6px); /* 少し上から現れる */
+    clip-path: inset(0 0 100% 0);/* 上からクリップ（裏から感の主役） */
+    transition:
+      max-height .28s ease,
+      opacity .28s ease,
+      transform .28s ease,
+      clip-path .28s ease;
+    z-index: 1;                  /* ボタン(z=2)の“裏側”に配置 */
+    box-shadow: none;            /* モバイルは影なしでスッキリ */
+    border-radius: 0;
+  }
+
+  /* 開いたときに下へ展開。max-heightは中身より少し大きめならOK */
+  #aboutSub.open{
+    max-height: 420px;
+    opacity: 1;
+    transform: translateY(0);
+    clip-path: inset(0 0 0 0);
+  }
+
+  /* タップしやすい行間＆中央寄せ（既存指定があってもこれが勝つ） */
+  #aboutSub .submenu__link{
+    display: block;
+    padding: 12px 20px;
+    text-align: center;
+    font-weight: 600;
+    border-top: 1px solid #e8efe9;
+  }
+  #aboutSub .submenu__link:first-child{ border-top: none; }
+
+  /* メニュー全体の縦積み整列（既存と競合しない軽い補強） */
+  .menu{ align-items: stretch; }
+}
+
+
+/* === 追加：固定ヘッダーぶんのアンカー着地余白（全見出し/セクション共通） === */
+:root { --nav-h: 60px; } /* 初期値。実寸はJSが上書きします */
+
+.section,
+.sec-title,
+[id] {  /* #concept,#features,#voices など、id持ち見出しにも効かせる */
+  scroll-margin-top: calc(var(--nav-h) + 12px);
+}

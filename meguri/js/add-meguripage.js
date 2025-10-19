@@ -1,26 +1,35 @@
 'use strict';
 
-// 多重読込でも一回だけ初期化
+/* ========= リロード時は必ず最上部へ（できるだけ早い段階で実行） ========= */
+try {
+  if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+  if (location.hash) {
+    history.replaceState(null, '', location.pathname + location.search);
+  }
+  window.scrollTo(0, 0);
+} catch (_) { /* no-op */ }
+
+/* ========= 多重読込でも一回だけ初期化 ========= */
 if (!window.__MEGURI_INIT__) {
   window.__MEGURI_INIT__ = true;
 
   document.addEventListener('DOMContentLoaded', function () {
-    // JSが生きている時だけアニメ適用（壊れても内容は見える）
     document.documentElement.classList.add('js-enabled');
 
-    /* util */
+    /* ===== util ===== */
     var $  = function (s, c) { return (c || document).querySelector(s); };
     var $$ = function (s, c) { return Array.from((c || document).querySelectorAll(s)); };
     var hasMM = (typeof matchMedia === 'function');
     var prefersReduced = hasMM && matchMedia('(prefers-reduced-motion: reduce)').matches === true;
 
-    /* 年号 */
+    /* ===== 年号 ===== */
     var y = $('#y');
     if (y) y.textContent = String(new Date().getFullYear());
 
-    /* ===（回転語はHTMLから削除したので特に処理不要）=== */
+    /* ===== ナビ・メニュー ===== */
+    var closeMenuFn = function(){};
+    var closeSubFn  = function(){};
 
-    /* ナビ */
     (function () {
       var hamburger = $('#hamburger');
       var menu = $('#menu');
@@ -70,9 +79,109 @@ if (!window.__MEGURI_INIT__) {
       document.addEventListener('keydown', function (e) {
         if (e.key === 'Escape') { closeSub(); closeMenu(); }
       });
+
+      // 外から呼べるように束縛
+      window.__MEGURI_CLOSE_MENU__ = closeMenu;
+      window.__MEGURI_CLOSE_SUB__  = closeSub;
+      closeMenuFn = closeMenu;
+      closeSubFn  = closeSub;
     })();
 
-    /* スクロール：ナビ影 & パララックス */
+    /* ===== ヘッダー高さをCSS変数へ反映（scroll-margin-top用） ===== */
+    (function () {
+      var nav = $('#nav');
+      var setNavH = function(){
+        var h = nav ? nav.offsetHeight : 60;
+        document.documentElement.style.setProperty('--nav-h', h + 'px');
+      };
+      setNavH();
+      window.addEventListener('resize', setNavH);
+    })();
+
+    /* ===== スムーズスクロール（固定ヘッダー分補正＋セクション別微調整＋二度補正） ===== */
+    (function () {
+      var nav = $('#nav');
+      var headerHeight = function () { return nav ? nav.offsetHeight : 0; };
+
+      // 端末幅で微調整値を切り替え
+      var extraFor = function(hash){
+        var mobile = window.innerWidth <= 880;
+        if (mobile) {
+          switch (hash) {
+            case '#concept':  return -110;
+            case '#features': return   0;
+            case '#voices':   return  28;
+            default:          return   0;
+          }
+        } else {
+          switch (hash) {
+            case '#concept':  return -36;
+            case '#features': return   0;
+            case '#voices':   return  14;
+            default:          return   0;
+          }
+        }
+      };
+
+      var clampToPage = function(to){
+        var maxTo = Math.max(0, (document.documentElement.scrollHeight || document.body.scrollHeight) - window.innerHeight);
+        return Math.min(Math.max(0, to), maxTo);
+      };
+
+      var smoothScrollToHash = function (hash) {
+        if (!hash || hash === '#') return;
+        var target = document.querySelector(hash);
+        if (!target) return;
+
+        // 上部バーを閉じてから計算
+        closeSubFn();
+        closeMenuFn();
+
+        // レイアウト再計測を待ってからスクロール
+        setTimeout(function(){
+          var extra = extraFor(hash);
+
+          var computeTop = function(){
+            var rectTop = target.getBoundingClientRect().top + window.pageYOffset;
+            return clampToPage(rectTop - headerHeight() - 8 + extra);
+          };
+
+          var to1 = computeTop();
+          try {
+            window.scrollTo({ top: to1, behavior: 'smooth' });
+          } catch (_) {
+            window.scrollTo(0, to1);
+          }
+
+          // 画像/フォント読み込み後のズレを再補正
+          setTimeout(function(){
+            var to2 = computeTop();
+            if (Math.abs((window.pageYOffset || 0) - to2) > 4) {
+              try { window.scrollTo({ top: to2 }); } catch(_){ window.scrollTo(0, to2); }
+            }
+          }, 450);
+        }, 0);
+      };
+
+      // 同一ページ内アンカーのみ補足
+      document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+        a.addEventListener('click', function (e) {
+          var href = a.getAttribute('href');
+          if (!href) return;
+          var url;
+          try { url = new URL(href, window.location.href); } catch (_) { return; }
+          if (url.pathname === window.location.pathname) {
+            e.preventDefault();
+            smoothScrollToHash(url.hash);
+          }
+        });
+      });
+
+      // 念のため最上部へ
+      setTimeout(function(){ window.scrollTo(0, 0); }, 0);
+    })();
+
+    /* ===== スクロール：ナビ影 & パララックス ===== */
     (function () {
       var nav = $('#nav');
       var photo = $('.photo-ph');
@@ -81,10 +190,10 @@ if (!window.__MEGURI_INIT__) {
         if (ticking) return;
         ticking = true;
         requestAnimationFrame(function () {
-          var y = window.scrollY || 0;
-          if (nav) nav.classList.toggle('is-scrolled', y > 6);
+          var sy = window.scrollY || 0;
+          if (nav) nav.classList.toggle('is-scrolled', sy > 6);
           if (photo && !prefersReduced) {
-            photo.style.transform = 'translateY(' + (y * 0.15) + 'px)';
+            photo.style.transform = 'translateY(' + (sy * 0.15) + 'px)';
             if (!photo.dataset.wc) { photo.style.willChange = 'transform'; photo.dataset.wc = '1'; }
           }
           ticking = false;
@@ -94,12 +203,10 @@ if (!window.__MEGURI_INIT__) {
       onScroll();
     })();
 
-    /* フェードイン（IntersectionObserver） */
+    /* ===== フェードイン（IntersectionObserver） ===== */
     (function () {
-      // ヒーロー内は初期表示で appear（真っ白回避）
       $$('.hero .fade-in').forEach(function (el) { el.classList.add('appear'); });
 
-      // セクション内の要素すべて
       var items = $$('.section.fade-in, .section .fade-in, .section .sec-title');
       if (!items.length) return;
 
@@ -107,8 +214,8 @@ if (!window.__MEGURI_INIT__) {
 
       if ('IntersectionObserver' in window) {
         var io = new IntersectionObserver(function (entries, obs) {
-          entries.forEach(function (e) {
-            if (e.isIntersecting) { e.target.classList.add('appear'); obs.unobserve(e.target); }
+          entries.forEach(function (ent) {
+            if (ent.isIntersecting) { ent.target.classList.add('appear'); obs.unobserve(ent.target); }
           });
         }, { threshold: 0.01, rootMargin: '0px 0px -20%' });
         items.forEach(function (el) { io.observe(el); });
@@ -124,5 +231,34 @@ if (!window.__MEGURI_INIT__) {
         onScroll();
       }
     })();
+
+    /* === 寄付リンクを新ページへ（ヘッダー/カード/フッター/下部ボタン対応） === */
+    (function () {
+      var goDonate = function(e){
+        if (e) { e.preventDefault(); e.stopPropagation(); }
+        try { closeSubFn(); closeMenuFn(); } catch(_) {}
+        // カレント階層からの相対遷移（必要に応じてパスを調整）
+        window.location.href = './donate.html';
+      };
+
+      // デリゲーションで確実に捕捉（DOMContentLoaded 後に有効）
+      document.addEventListener('click', function(ev){
+        var a = ev.target.closest('a');
+        if (!a) return;
+
+        var href = a.getAttribute('href') || '';
+        var text = (a.textContent || '').trim();
+
+        // 1) 明示の #donate
+        if (href === '#donate') return goDonate(ev);
+
+        // 2) donate セクション内の a[href="#"]
+        if (href === '#' && a.closest('#donate')) return goDonate(ev);
+
+        // 3) 文言で拾う（安全に）：寄付 / 応援の方法 のテキストリンクで href="#" のもの
+        if (href === '#' && /寄付|応援の方法/.test(text)) return goDonate(ev);
+      }, { passive: false });
+    })();
+
   });
 }
