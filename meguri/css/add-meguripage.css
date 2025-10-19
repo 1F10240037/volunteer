@@ -334,3 +334,15 @@ body { margin:0; font-family:"Noto Sans JP", sans-serif; background:#fff; color:
 [id] {  /* #concept,#features,#voices など、id持ち見出しにも効かせる */
   scroll-margin-top: calc(var(--nav-h) + 12px);
 }
+
+/* ===== 左側のテキストが画面端に寄りすぎる問題を修正 ===== */
+.feature__text {
+  padding-left: 2.5rem; /* 文章を右に寄せる。値は2〜3remの範囲で調整可 */
+}
+
+/* スマホでは余白を少し小さめにする */
+@media (max-width: 768px) {
+  .feature__text {
+    padding-left: 1rem;
+  }
+}
