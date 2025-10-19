@@ -92,8 +92,7 @@ html, body{
 
 /* ---- プレースホルダー ---- */
 .ph, .ph--app, .ph--bg{
-  background: linear-gradient(180deg,#fff, #FBF4E7);
-  border: 1px dashed var(--border);
+  background: #ffffff;
   color: var(--muted);
 }
 

@@ -93,19 +93,19 @@ body { margin:0; font-family:"Noto Sans JP", sans-serif; background:#fff; color:
 }
 
 /* ===== カード ===== */
-.cards-3 { display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:24px; }
+.cards-3 { display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); margin:60px 0; gap:24px; }
 .card { background:#fff; border-radius:14px; box-shadow:0 4px 10px rgba(0,0,0,.06); padding:20px; text-align:center; }
-.ph { background:#e7efe9; border-radius:12px; }
 .ph--photo { height:180px; }
-.ph--app { height:260px; }
+.ph--app { height:260px; display: flex; align-items:center; justify-content: center; }
 .ph--bg { padding:36px; }
 
 /* ===== 機能一覧 ===== */
 .features { background:var(--bg-light); }
-.feature.row { display:grid; grid-template-columns:1.1fr .9fr; align-items:center; gap:40px; margin:60px 0; }
+.feature.row { display:grid; grid-template-columns:1.1fr .9fr; align-items:center;  margin:60px 0; border-radius: 12px; }
 .feature.row.alt { grid-template-columns:.9fr 1.1fr; }
-.feature__media .ph { background:#e0efe8; border-radius:12px; height:260px; }
-.feature__text h3 { color:var(--brand); margin-bottom:.5rem; }
+.feature__media .ph { border-radius:12px; height:520px; }
+.feature__text h3 { color:var(--brand); margin-bottom:.5rem; font-size: 1.5rem; }
+.feature__media .ph img { height: 100%; object-fit: cover; display: block; border-radius:12px; }
 
 /* ===== ダウンロード ===== */
 .download { background:linear-gradient(180deg, #fff, #f2f8f4); text-align:center; }
@@ -171,7 +171,7 @@ body { margin:0; font-family:"Noto Sans JP", sans-serif; background:#fff; color:
 .card--step h3 {
   margin: 6px 0 6px;
   color: var(--brand);
-  font-size: 1.25rem;
+  font-size: 1.5rem;
 }
 
 .step-copy {
@@ -338,6 +338,7 @@ body { margin:0; font-family:"Noto Sans JP", sans-serif; background:#fff; color:
 /* ===== 左側のテキストが画面端に寄りすぎる問題を修正 ===== */
 .feature__text {
   padding-left: 2.5rem; /* 文章を右に寄せる。値は2〜3remの範囲で調整可 */
+  padding-right: 2.5rem;
 }
 
 /* スマホでは余白を少し小さめにする */
